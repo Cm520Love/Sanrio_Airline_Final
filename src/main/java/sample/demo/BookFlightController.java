@@ -14,6 +14,7 @@ import javafx.scene.layout.*;
 import java.time.LocalDate;
 
 import userInformation.flightInformation.*;
+import sample.demo.DepartFlightsController.*;
 public class BookFlightController implements Initializable{
 
     static ArrayList<userInformation.UserInformation> flightInformation;
@@ -185,6 +186,7 @@ public class BookFlightController implements Initializable{
         if (displayEntryErrors(flightInformation)) {
             System.out.println("Searching for flights with your criteria...");
             loadingFlightsLabel.setVisible(true);
+            DepartFlightsController.retrieveFlightTickets();
             Starting.window.setScene(Starting.flightTicketsScene);
         }
 
