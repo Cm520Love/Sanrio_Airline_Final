@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="830.0" prefWidth="568.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.demo.ReturnFlightController">
+    <children>
+        <ImageView fx:id="ReturnTicketImageView" fitHeight="830.0" fitWidth="572.0" layoutY="-1.0" pickOnBounds="true">
+            <image>
+                <Image url="@../../images/cute-sanrio-1kne0am39hwzcjdd.jpg" />
+            </image>
+        </ImageView>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" height="707.0" layoutX="37.0" layoutY="83.0" stroke="BLACK" strokeType="INSIDE" width="483.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startY="0.1735016013545569">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9111030101776123" green="0.7220597863197327" blue="0.9210526347160339" opacity="0.9100000262260437" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5216049551963806" green="0.8963477611541748" blue="1.0" opacity="0.9399999976158142" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+        <Pane layoutX="5.0" layoutY="161.0" prefHeight="161.0" prefWidth="572.0">
+            <children>
+                <Line endX="32.333343505859375" layoutX="277.0" layoutY="121.0" startX="-69.0" />
+                <Label layoutX="184.0" layoutY="33.0" text="FlightNo : ">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="ReturnTicketNo001" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="151.0" layoutY="111.0" text="Depart">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="ReturnArrivalTime001" alignment="CENTER" editable="false" layoutX="307.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #C4F5FC; -fx-border-width: 3;">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="328.0" layoutY="111.0" text="Arrival">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="ReturnAddButton001" alignment="CENTER" layoutX="438.0" layoutY="72.0" mnemonicParsing="false" onAction="#onReturnAddButton001Clicked" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Separator layoutX="33.0" layoutY="143.0" prefHeight="10.0" prefWidth="483.0" style="-fx-background-color: #D8BFD8;">
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Separator>
+                <Separator layoutX="35.0" layoutY="9.0" prefHeight="10.0" prefWidth="476.0" style="-fx-background-color: #D8BFD8;">
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Separator>
+                <TextField fx:id="ReturnTime001" alignment="CENTER" editable="false" layoutX="131.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #C4F5FC; -fx-border-width: 3;">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TextField>
+            </children>
+        </Pane>
+        <Label fx:id="ReturnFlightTitle" alignment="CENTER" layoutX="129.0" layoutY="38.0" prefHeight="37.0" prefWidth="298.0" style="-fx-background-color: pink; -fx-border-color: #D8BFD8; -fx-border-width: 3;" text="Sanrio Return Flight Tickets">
+            <font>
+                <Font name="System Bold Italic" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="80.0" layoutY="96.0" text="Date : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="ReturnTicketDate" alignment="CENTER" editable="false" layoutX="136.0" layoutY="90.0" prefHeight="25.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+        <Label layoutX="291.0" layoutY="96.0" text="From : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="ReturnTicketFrom" alignment="CENTER" editable="false" layoutX="345.0" layoutY="90.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+        <Label layoutX="300.0" layoutY="135.0" text="To : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="ReturnTicketTo" alignment="CENTER" editable="false" layoutX="345.0" layoutY="129.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+        <Label layoutX="82.0" layoutY="135.0" text="Trip : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="ReturnTicketType" alignment="CENTER" editable="false" layoutX="136.0" layoutY="129.0" prefHeight="32.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+      <Button fx:id="SanrioAirlineButton" layoutX="467.0" layoutY="14.0" mnemonicParsing="false" onAction="#onSanrioAirlineButtonClicked" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="Sanrio Airline" />
+      <Pane layoutX="-1.0" layoutY="303.0" prefHeight="161.0" prefWidth="520.0">
+         <children>
+            <Line endX="32.333343505859375" layoutX="277.0" layoutY="121.0" startX="-69.0" />
+            <Label layoutX="184.0" layoutY="33.0" text="FlightNo : ">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ReturnTicketNo0011" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+            <Label layoutX="151.0" layoutY="111.0" text="Depart">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ReturnArrivalTime0011" alignment="CENTER" editable="false" layoutX="307.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #C4F5FC; -fx-border-width: 3;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="328.0" layoutY="111.0" text="Arrival">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="ReturnAddButton002" alignment="CENTER" layoutX="438.0" layoutY="72.0" mnemonicParsing="false" onAction="#onReturnAddButton002Clicked" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Separator layoutX="39.0" layoutY="143.0" prefHeight="10.0" prefWidth="483.0" style="-fx-background-color: #D8BFD8;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Separator>
+            <TextField fx:id="ReturnTime0011" alignment="CENTER" editable="false" layoutX="131.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #C4F5FC; -fx-border-width: 3;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Pane layoutX="-1.0" layoutY="446.0" prefHeight="161.0" prefWidth="520.0">
+         <children>
+            <Line endX="32.333343505859375" layoutX="277.0" layoutY="121.0" startX="-69.0" />
+            <Label layoutX="184.0" layoutY="33.0" text="FlightNo : ">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ReturnTicketNo00111" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+            <Label layoutX="151.0" layoutY="111.0" text="Depart">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ReturnArrivalTime00111" alignment="CENTER" editable="false" layoutX="307.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #C4F5FC; -fx-border-width: 3;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="328.0" layoutY="111.0" text="Arrival">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="ReturnAddButton003" alignment="CENTER" layoutX="438.0" layoutY="72.0" mnemonicParsing="false" onAction="#onReturnAddButton003Clicked" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Separator layoutX="39.0" layoutY="143.0" prefHeight="10.0" prefWidth="483.0" style="-fx-background-color: #D8BFD8;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Separator>
+            <TextField fx:id="ReturnTime00111" alignment="CENTER" editable="false" layoutX="131.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #C4F5FC; -fx-border-width: 3;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+      <Pane layoutX="-1.0" layoutY="587.0" prefHeight="161.0" prefWidth="520.0">
+         <children>
+            <Line endX="32.333343505859375" layoutX="277.0" layoutY="121.0" startX="-69.0" />
+            <Label layoutX="183.0" layoutY="33.0" text="FlightNo : ">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ReturnTicketNo001111" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+            <Label layoutX="151.0" layoutY="111.0" text="Depart">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ReturnArrivalTime001111" alignment="CENTER" editable="false" layoutX="307.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #C4F5FC; -fx-border-width: 3;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label layoutX="328.0" layoutY="111.0" text="Arrival">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="ReturnAddButton004" alignment="CENTER" layoutX="438.0" layoutY="72.0" mnemonicParsing="false" onAction="#onReturnAddButton004Clicked" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Separator layoutX="39.0" layoutY="143.0" prefHeight="10.0" prefWidth="483.0" style="-fx-background-color: #D8BFD8;">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Separator>
+            <TextField fx:id="ReturnTime001111" alignment="CENTER" editable="false" layoutX="131.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #C4F5FC; -fx-border-width: 3;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+</AnchorPane>
