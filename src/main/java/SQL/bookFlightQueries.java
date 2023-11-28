@@ -97,7 +97,7 @@ public class bookFlightQueries {
             pStatement = conn.prepareStatement("SELECT MAX(FlightID) as num FROM Flight");
             result = pStatement.executeQuery();
             result.next();
-            int flightID = Integer.parseInt((result.getString("num"))) + 1;
+            int flightID = result.getInt("num") + 1;
             for (int i = 0; i < 4; i++) {
                 pStatement = conn.prepareStatement(
                         "INSERT INTO Flight VALUES (?, ?, ? , ?, ?, ?, ?, 0);"

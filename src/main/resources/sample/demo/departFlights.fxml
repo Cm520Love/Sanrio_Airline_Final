@@ -22,7 +22,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="830.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.demo.FlightTicketsController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="830.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.demo.DepartFlightsController">
    <children>
       <ImageView fx:id="FlightTicketsImageView" fitHeight="830.0" fitWidth="713.0" layoutY="1.0" opacity="0.57" pickOnBounds="true">
          <image>
