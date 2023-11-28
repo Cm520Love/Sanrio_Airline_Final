@@ -14,31 +14,19 @@ import javafx.stage.Stage;
 public class ReturnFlightController extends Application {
 
     @FXML
-    private Button ReturnAddButton001;
-
-    @FXML
-    private Button ReturnAddButton002;
-
-    @FXML
-    private Button ReturnAddButton003;
-
-    @FXML
-    private Button ReturnAddButton004;
-
-    @FXML
-    private TextField ReturnArrivalTime001;
-
-    @FXML
-    private TextField ReturnArrivalTime0011;
-
-    @FXML
-    private TextField ReturnArrivalTime00111;
-
-    @FXML
-    private TextField ReturnArrivalTime001111;
-
-    @FXML
     private Label ReturnFlightTitle;
+
+    @FXML
+    private Button ReturnTicket1AddButton;
+
+    @FXML
+    private Button ReturnTicket2AddButton;
+
+    @FXML
+    private Button ReturnTicket3AddButton;
+
+    @FXML
+    private Button ReturnTicket4AddButton;
 
     @FXML
     private TextField ReturnTicketDate;
@@ -53,13 +41,13 @@ public class ReturnFlightController extends Application {
     private TextField ReturnTicketNo001;
 
     @FXML
-    private TextField ReturnTicketNo0011;
+    private TextField ReturnTicketNo002;
 
     @FXML
-    private TextField ReturnTicketNo00111;
+    private TextField ReturnTicketNo003;
 
     @FXML
-    private TextField ReturnTicketNo001111;
+    private TextField ReturnTicketNo004;
 
     @FXML
     private TextField ReturnTicketTo;
@@ -68,46 +56,56 @@ public class ReturnFlightController extends Application {
     private TextField ReturnTicketType;
 
     @FXML
-    private TextField ReturnTime001;
-
-    @FXML
-    private TextField ReturnTime0011;
-
-    @FXML
-    private TextField ReturnTime00111;
-
-    @FXML
-    private TextField ReturnTime001111;
-
-    @FXML
     private Button SanrioAirlineButton;
 
     @FXML
-    void onReturnAddButton001Clicked(ActionEvent event) {
+    private TextField ticket1ReturnArrivalTimeTextfield;
+
+    @FXML
+    private TextField ticket1ReturnTimeTextfield;
+
+    @FXML
+    private TextField ticket2ReturnArrivalTimeTextfield;
+
+    @FXML
+    private TextField ticket2ReturnTimeTextfield;
+
+    @FXML
+    private TextField ticket3ReturnArrivalTimeTextfield;
+
+    @FXML
+    private TextField ticket3ReturnTimeTextfield;
+
+    @FXML
+    private TextField ticket4ReturnArrivalTimeTextfield;
+
+    @FXML
+    private TextField ticket4ReturnTimeTextfield;
+
+    @FXML
+    void onReturnTicket1AddButtonClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void onReturnAddButton002Clicked(ActionEvent event) {
+    void onReturnTicket2AddButtonClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void onReturnAddButton003Clicked(ActionEvent event) {
+    void onReturnTicket3AddButtonClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void onReturnAddButton004Clicked(ActionEvent event) {
+    void onReturnTicket4AddButtonClicked(ActionEvent event) {
 
     }
 
     @FXML
     void onSanrioAirlineButtonClicked(ActionEvent event) {
-
-
-
     }
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -122,4 +120,5 @@ public class ReturnFlightController extends Application {
         primaryStage.show();
     }
 }
+
 

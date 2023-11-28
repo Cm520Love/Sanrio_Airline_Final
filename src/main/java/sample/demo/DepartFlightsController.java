@@ -2,7 +2,7 @@ package sample.demo;
 import javafx.fxml.*;
 import java.util.HashMap;
 import java.util.ArrayList;
-import javafx.scene.control.*
+import javafx.scene.control.*;
 public class DepartFlightsController implements Initializable {
 
     @FXML
