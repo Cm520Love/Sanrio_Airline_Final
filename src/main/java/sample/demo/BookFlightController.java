@@ -16,6 +16,8 @@ import java.time.LocalDate;
 import userInformation.flightInformation.*;
 public class BookFlightController implements Initializable{
 
+    static ArrayList<userInformation.UserInformation> flightInformation;
+
     @FXML
     private Hyperlink myTripsHyperlink;
 
@@ -178,12 +180,11 @@ public class BookFlightController implements Initializable{
     @FXML
     private void onSearchFlightsButtonClicked() {
         clearEntryErrors();
-        ArrayList<userInformation.UserInformation> flightInformation = new ArrayList<>();
+        flightInformation = new ArrayList<>();
         flightInformation = testFlightInformation();
         if (displayEntryErrors(flightInformation)) {
             System.out.println("Searching for flights with your criteria...");
             loadingFlightsLabel.setVisible(true);
-            DepartFlightsController.displayFlightTickets(bookFlightQueries.retrieveFlights(flightInformation));
             Starting.window.setScene(Starting.flightTicketsScene);
         }
 

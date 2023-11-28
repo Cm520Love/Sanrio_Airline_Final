@@ -2,8 +2,9 @@ package sample.demo;
 import javafx.fxml.*;
 import java.util.HashMap;
 import java.util.ArrayList;
-import javafx.scene.control.*
-public class DepartFlightsController implements Initializable {
+import javafx.scene.control.*;
+import SQL.bookFlightQueries;
+public class DepartFlightsController {
 
     @FXML
     private TextField departureDateTextField;
@@ -15,20 +16,23 @@ public class DepartFlightsController implements Initializable {
     @FXML private Button ticket1AddButton;
 
     static private HashMap<String, ArrayList<String>> allFlightTickets;
+    static private String tripType;
     //public FlightTicketsController(HashMap<String, ArrayList<String>> allFlightTickets) {
     //    this.allFlightTickets = allFlightTickets;
     //}
-    @Override
-    public void initialize(java.net.URL url, java.util.ResourceBundle resourceBundle) {
+
+    public void retrieveFlightTickets() {
+        DepartFlightsController.allFlightTickets = bookFlightQueries.retrieveFlights(BookFlightController.flightInformation);
+        setFlightInformation();
+
 
     }
 
-    public static void displayFlightTickets(HashMap<String, ArrayList<String>> allFlightTickets) {
-        DepartFlightsController.allFlightTickets = allFlightTickets;
-
+    public void setFlightInformation() {
         for (String key: allFlightTickets.keySet()) {
+            String from = (allFlightTickets.get(key)).get(3);
+            String to = (allFlightTickets.get(key)).get(4);
             System.out.println(key + ": " + allFlightTickets.get(key));
         }
-
     }
 }

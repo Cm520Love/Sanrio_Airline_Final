@@ -47,7 +47,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="ticket1ArrivalTextField" alignment="CENTER" editable="false" layoutX="233.0" layoutY="78.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket1DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="233.0" layoutY="78.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -67,7 +67,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="ticket1AddButton" alignment="CENTER" layoutX="580.0" layoutY="82.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
+            <Button fx:id="departureTicket1AddButton" alignment="CENTER" layoutX="580.0" layoutY="82.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -117,7 +117,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="ticket2ArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="233.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket2DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="233.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -137,7 +137,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="ticket2AddButton" alignment="CENTER" layoutX="581.0" layoutY="68.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
+            <Button fx:id="departureTicket2AddButton" alignment="CENTER" layoutX="581.0" layoutY="68.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -172,7 +172,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="ticket3ArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="236.0" layoutY="56.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket3DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="236.0" layoutY="56.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -192,7 +192,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="ticket3AddButton" alignment="CENTER" layoutX="584.0" layoutY="66.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
+            <Button fx:id="departureTicket3AddButton" alignment="CENTER" layoutX="584.0" layoutY="66.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
@@ -222,7 +222,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="ticket4ArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="229.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket4DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="229.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -242,7 +242,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="ticket4AddButton" alignment="CENTER" layoutX="576.0" layoutY="66.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
+            <Button fx:id="departureTicket4AddButton" alignment="CENTER" layoutX="576.0" layoutY="66.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
