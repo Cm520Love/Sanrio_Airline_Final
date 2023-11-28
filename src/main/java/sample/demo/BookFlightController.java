@@ -183,7 +183,7 @@ public class BookFlightController implements Initializable{
         if (displayEntryErrors(flightInformation)) {
             System.out.println("Searching for flights with your criteria...");
             loadingFlightsLabel.setVisible(true);
-            bookFlightQueries.retrieveFlights(flightInformation);
+            DepartFlightsController.displayFlightTickets(bookFlightQueries.retrieveFlights(flightInformation));
             Starting.window.setScene(Starting.flightTicketsScene);
         }
 

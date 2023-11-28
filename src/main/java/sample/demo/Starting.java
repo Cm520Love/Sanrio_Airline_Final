@@ -48,7 +48,7 @@ public class Starting extends Application {
             mainMenuAccessPage = new FXMLLoader(getClass().getResource("mainMenuAccess.fxml"));
             signUpPage = new FXMLLoader(getClass().getResource("SignUp.fxml"));
             bookFlightPage = new FXMLLoader(getClass().getResource("bookFlight.fxml"));
-            flightTicketsPage = new FXMLLoader(getClass().getResource("FlightTickets.fxml"));
+            flightTicketsPage = new FXMLLoader(getClass().getResource("departFlights.fxml"));
             adminboardPage = new FXMLLoader(getClass().getResource("AdminBoard.fxml"));
 
             // creating scenes for all the pages
