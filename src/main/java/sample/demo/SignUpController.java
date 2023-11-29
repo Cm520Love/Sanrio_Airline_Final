@@ -71,6 +71,17 @@ public class SignUpController implements Initializable {
 
     }
     @FXML
+    protected void onMainMenuHyperlinkClicked() {
+        System.out.println("going back to the main menu");
+        Starting.window.setScene(Starting.mainMenuNoAccessScene);
+    }
+
+    @FXML
+    protected void onMemberLoginHyperlinkClicked() {
+        System.out.println("going back to the login page");
+        Starting.window.setScene(Starting.loginScene);
+    }
+    @FXML
     public void onSubmitButtonClicked() {
         clearEntryErrors();
         ArrayList<userInformation.UserInformation> newUserDetails = new ArrayList<>();
@@ -82,18 +93,6 @@ public class SignUpController implements Initializable {
             Starting.window.setScene(Starting.mainMenuAccessScene);
         }
 
-    }
-
-    @FXML
-    protected void onMainMenuHyperlinkClicked() {
-        System.out.println("going back to the main menu");
-        Starting.window.setScene(Starting.mainMenuNoAccessScene);
-    }
-
-    @FXML
-    protected void onMemberLoginHyperlinkClicked() {
-        System.out.println("going back to the login page");
-        Starting.window.setScene(Starting.loginScene);
     }
 
     private void clearEntryErrors() {
@@ -162,15 +161,6 @@ public class SignUpController implements Initializable {
 
         return continueRegistration;
     }
-
-    private userInformation.UserInformation determineUserType(ChoiceBox<String> SignUpMemberTypeDropBox, TextField SignUpAdminCodeBox) {
-        if (SignUpMemberTypeDropBox.getValue() == "Customer") {
-            return new Customer();
-        } else {
-            return new Admin(SignUpAdminCodeBox.getText());
-        }
-    }
-
     private ArrayList<userInformation.UserInformation> testUserInformation() {
         userProfileVO newUser = new userProfileVO();
 
@@ -190,4 +180,13 @@ public class SignUpController implements Initializable {
 
         return newUser.getUserInformation();
     }
+    private userInformation.UserInformation determineUserType(ChoiceBox<String> SignUpMemberTypeDropBox, TextField SignUpAdminCodeBox) {
+        if (SignUpMemberTypeDropBox.getValue() == "Customer") {
+            return new Customer();
+        } else {
+            return new Admin(SignUpAdminCodeBox.getText());
+        }
+    }
+
+
 }

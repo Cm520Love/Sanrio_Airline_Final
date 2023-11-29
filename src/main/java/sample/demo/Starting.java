@@ -12,9 +12,10 @@ public class Starting extends Application {
     private FXMLLoader mainMenuAccessPage;
     private FXMLLoader signUpPage;
     private FXMLLoader bookFlightPage;
-    private FXMLLoader flightTicketsPage;
+    static FXMLLoader departTicketsPage;
 
     private FXMLLoader adminboardPage;
+    private FXMLLoader forgotPasswordPage;
 
     static Scene mainMenuNoAccessScene;
     static Scene loginScene;
@@ -22,8 +23,9 @@ public class Starting extends Application {
     static Scene signUpScene;
     static Scene mainMenuAccessScene;
     static Scene bookFlightScene;
-    static Scene flightTicketsScene;
+    static Scene departTicketsScene;
     static Scene adminboardScene;
+    static Scene forgotPasswordScene;
     public static java.sql.Connection conn;
     public static void main(String[] args) { launch(args); }
 
@@ -48,8 +50,8 @@ public class Starting extends Application {
             mainMenuAccessPage = new FXMLLoader(getClass().getResource("mainMenuAccess.fxml"));
             signUpPage = new FXMLLoader(getClass().getResource("SignUp.fxml"));
             bookFlightPage = new FXMLLoader(getClass().getResource("bookFlight.fxml"));
-            flightTicketsPage = new FXMLLoader(getClass().getResource("departFlights.fxml"));
             adminboardPage = new FXMLLoader(getClass().getResource("AdminBoard.fxml"));
+            //forgotPasswordPage = new FXMLLoader(getClass().getResource(""));
 
             // creating scenes for all the pages
             splashScreenScene = new Scene(root);
@@ -58,7 +60,6 @@ public class Starting extends Application {
             loginScene = new Scene(loginPage.load());
             signUpScene = new Scene(signUpPage.load());
             bookFlightScene = new Scene(bookFlightPage.load());
-            flightTicketsScene = new Scene(flightTicketsPage.load());
             adminboardScene = new Scene(adminboardPage.load());
 
 
