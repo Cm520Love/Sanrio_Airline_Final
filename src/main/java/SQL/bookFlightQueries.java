@@ -5,6 +5,7 @@ import userInformation.UserInformation;
 import static sample.demo.Starting.conn;
 
 import java.util.ArrayList;
+import sample.demo.flightInformationVO;
 public class bookFlightQueries {
 
     private final static String[] DEPARTURE_TIMES = {"9:00", "12:00", "3:00", "6:00"};
@@ -39,15 +40,12 @@ public class bookFlightQueries {
     // if return call the check departure flights and check return flights
     // if one way, only call the departure flights
 
-    public static HashMap<String, ArrayList<String>>  retrieveFlights(ArrayList<UserInformation> flightInformation) {
-        String fromCity = flightInformation.get(4).getInfo();
-        fromCity = fromCity.substring(fromCity.length() - 3);
-        String toCity = flightInformation.get(6).getInfo();
-        toCity = toCity.substring(toCity.length() - 3);
-        String departureDate = flightInformation.get(1).getInfo();
-        String returnDate = flightInformation.get(2).getInfo();
+    public static HashMap<Integer, ArrayList<String>>  retrieveFlights(String[] flightInfo) {
+        /*
 
-        HashMap<String, ArrayList<String>> allFlights = new HashMap<>();
+
+
+
         switch (flightInformation.get(0).getInfo()) {
             case "One-Way":
                 System.out.println("checking one way flights");
@@ -62,53 +60,48 @@ public class bookFlightQueries {
                 allFlights.putAll(getFlights(new String[] {toCity, fromCity, returnDate}));
 
         }
+        */
 
-        return allFlights;
-
-    }
-    public static void checkDepartureFlights(String[] airportInformation) {
         try {
             pStatement = conn.prepareStatement(
-                "SELECT COUNT(*) AS numFlights FROM Flight WHERE DepartureAirport = ? AND ArrivalAirport = ? AND DepartureDate = ?"
+                    "SELECT COUNT(*) AS num FROM Flight WHERE DepartureAirport = ? AND ArrivalAirport = ? AND DepartureDate = ?"
             );
-            pStatement.setString(1, airportInformation[0]);
-            pStatement.setString(2, airportInformation[1]);
-            pStatement.setString(3, airportInformation[2]);
+            pStatement.setString(1, flightInfo[0]);
+            pStatement.setString(2, flightInfo[1]);
+            pStatement.setString(3, flightInfo[2]);
+
 
             result = pStatement.executeQuery();
             result.next();
-            if ((result.getInt("numFlights")) >= 1) {
-                System.out.println("there are flights available!!!");
-            } else {
-                System.out.println("no flights available");
-                System.out.println("creating flights now....");
-                createFlights(airportInformation);
-                System.out.println("flights have been created!");
+            if ((result.getInt("num")) == 0) {
+                createFlights(flightInfo);
             }
         }
         catch (SQLException ex) {
             ex.printStackTrace();
+        } finally {
+            return getFlights(flightInfo);
         }
-  
+
+
     }
 
     public static void createFlights(String[] airportInformation) {
         try {
-            pStatement = conn.prepareStatement("SELECT MAX(FlightID) as num FROM Flight");
+            pStatement = conn.prepareStatement("SELECT MAX(FlightID) AS num FROM Flight");
             result = pStatement.executeQuery();
             result.next();
             int flightID = result.getInt("num") + 1;
             for (int i = 0; i < 4; i++) {
                 pStatement = conn.prepareStatement(
-                        "INSERT INTO Flight VALUES (?, ?, ? , ?, ?, ?, ?, 0);"
+                        "INSERT INTO Flight VALUES (?, ? , ?, ?, ?, ?, 0);"
                 );
-                pStatement.setString(1, flightID++ + "");
-                pStatement.setString(2, "DELTA");
-                pStatement.setString(3, airportInformation[2]);
-                pStatement.setString(4, airportInformation[0]);
-                pStatement.setString(5, airportInformation[1]);
-                pStatement.setString(6, DEPARTURE_TIMES[i]);
-                pStatement.setString(7, ARRIVAL_TIMES[i]);
+                pStatement.setInt(1, flightID++);
+                pStatement.setString(2, airportInformation[2]);
+                pStatement.setString(3, airportInformation[0]);
+                pStatement.setString(4, airportInformation[1]);
+                pStatement.setString(5, DEPARTURE_TIMES[i]);
+                pStatement.setString(6, ARRIVAL_TIMES[i]);
                 pStatement.execute();
             }
 
@@ -120,33 +113,34 @@ public class bookFlightQueries {
 
 
 
-    public static HashMap<String, ArrayList<String>> getFlights(String[] airportInformation) {
-        HashMap<String, ArrayList<String>> allFlights = new HashMap<>();
+    public static HashMap<Integer, ArrayList<String>> getFlights(String[] flightInfo) {
+        HashMap<Integer, ArrayList<String>> availableFlights = new HashMap<>();
+        ArrayList<String> singleFlight;
+        int flightID;
         try {
             pStatement = conn.prepareStatement(
-            "SELECT * FROM Flight WHERE DepartureAirport = ? AND ArrivalAirport = ? AND DepartureDate = ?"
+                    "SELECT * FROM Flight WHERE DepartureAirport = ? AND ArrivalAirport = ? AND DepartureDate = ?"
             );
-            pStatement.setString(1, airportInformation[0]);
-            pStatement.setString(2, airportInformation[1]);
-            pStatement.setString(3, airportInformation[2]);
+            pStatement.setString(1, flightInfo[0]);
+            pStatement.setString(2, flightInfo[1]);
+            pStatement.setString(3, flightInfo[2]);
 
             result = pStatement.executeQuery();
-
-
-            ArrayList<String> singleFlight;
             while (result.next()) {
                 singleFlight = new ArrayList<>();
-                for (int i = 1; i <= 8; i++) {
+                flightID = result.getInt(1);
+                for (int i = 2; i <= 6; i++) {
                         singleFlight.add(result.getString(i).toString());
                 }
-                allFlights.put(singleFlight.get(0), singleFlight);
+                singleFlight.add(String.valueOf(result.getInt(7)));
+                availableFlights.put(flightID, singleFlight);
             }
         }
         catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return allFlights;
+        return availableFlights;
     }
 
 }

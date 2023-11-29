@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import java.time.LocalDate;
+import javafx.fxml.*;
+import javafx.scene.*;
 
 import userInformation.flightInformation.*;
 import sample.demo.DepartFlightsController.*;
@@ -47,11 +49,12 @@ public class BookFlightController implements Initializable{
 
     @Override
     public void initialize(java.net.URL url, java.util.ResourceBundle resourceBundle) {
+
         setFromStateListener();
+
         tripTypeChoiceBox.getItems().addAll("Round", "One-Way");
         tripTypeChoiceBox.setValue("Round");
         setTripTypeListener();
-
         departDatePicker.setValue(LocalDate.now());
         setDatePickerListener();
         loadingFlightsLabel.setVisible(false);
@@ -103,11 +106,10 @@ public class BookFlightController implements Initializable{
         fromStateComboBox.getItems().addAll(State.getStateAbbreviations());
         fromStateComboBox.getSelectionModel().selectedItemProperty().addListener(
                 (properties, oldValue, newValue) -> {
-                    final ArrayList<String> adjustedStates = State.getStateAbbreviations();
                     fromCityComboBox.getItems().clear();
                     toStateComboBox.getItems().clear();
-                    adjustedStates.remove(newValue);
-                    toStateComboBox.getItems().addAll(adjustedStates);
+                    toStateComboBox.getItems().addAll(State.getStateAbbreviations());
+                    toStateComboBox.getItems().remove(newValue);
                     final ArrayList<String[]> cityAirports = bookFlightQueries.getAirports(newValue);
                     for (String[] city: cityAirports) {
                         fromCityComboBox.getItems().addAll(city);
@@ -180,14 +182,21 @@ public class BookFlightController implements Initializable{
 
     @FXML
     private void onSearchFlightsButtonClicked() {
-        clearEntryErrors();
-        flightInformation = new ArrayList<>();
-        flightInformation = testFlightInformation();
-        if (displayEntryErrors(flightInformation)) {
-            System.out.println("Searching for flights with your criteria...");
-            loadingFlightsLabel.setVisible(true);
-            DepartFlightsController.retrieveFlightTickets();
-            Starting.window.setScene(Starting.flightTicketsScene);
+        try {
+            clearEntryErrors();
+            flightInformation = new ArrayList<>();
+            flightInformation = testFlightInformation();
+            if (displayEntryErrors(flightInformation)) {
+                System.out.println("Searching for flights with your criteria...");
+                flightInformationVO.setCurrentFlightInfo(flightInformation);
+                loadingFlightsLabel.setVisible(true);
+                Starting.departTicketsPage = new FXMLLoader(getClass().getResource("departFlights.fxml"));
+                Starting.departTicketsScene = new Scene(Starting.departTicketsPage.load());
+                Starting.window.setScene(Starting.departTicketsScene);
+            }
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
         }
 
     }

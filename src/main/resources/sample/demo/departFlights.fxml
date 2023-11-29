@@ -37,7 +37,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="FlightNo1Box" alignment="CENTER" editable="false" layoutX="314.0" layoutY="27.0" prefHeight="32.0" prefWidth="175.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+            <TextField fx:id="departFlightNo1Box" alignment="CENTER" editable="false" layoutX="314.0" layoutY="27.0" prefHeight="32.0" prefWidth="175.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -47,7 +47,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="ticket1DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="233.0" layoutY="78.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket1ArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="233.0" layoutY="78.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;" text=" ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -82,7 +82,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Separator>
-            <TextField fx:id="ticket1DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="59.0" layoutY="75.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket1DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="59.0" layoutY="75.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;" text=" ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -97,7 +97,7 @@
       <Pane layoutX="5.0" layoutY="325.0" prefHeight="168.0" prefWidth="706.0">
          <children>
             <Line endX="50.33331298828125" layoutX="205.0" layoutY="119.0" startX="-69.0" />
-            <TextField fx:id="ticket2DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="59.0" layoutY="60.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket2DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="59.0" layoutY="60.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;" text=" ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -107,7 +107,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="FlightNo2Box" alignment="CENTER" layoutX="314.0" layoutY="18.0" prefHeight="32.0" prefWidth="165.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+            <TextField fx:id="departFlightNo2Box" alignment="CENTER" layoutX="314.0" layoutY="18.0" prefHeight="32.0" prefWidth="165.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -117,7 +117,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="ticket2DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="233.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket2ArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="233.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;" text=" ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -152,7 +152,7 @@
       <Pane layoutX="-1.0" layoutY="485.0" prefHeight="157.0" prefWidth="713.0">
          <children>
             <Line endX="50.33331298828125" layoutX="210.0" layoutY="109.0" startX="-69.0" />
-            <TextField fx:id="ticket3DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="66.0" layoutY="56.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket3DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="66.0" layoutY="56.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;" text=" ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -162,7 +162,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="FlightNo3Box" alignment="CENTER" layoutX="321.0" layoutY="10.0" prefHeight="32.0" prefWidth="165.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+            <TextField fx:id="departFlightNo3Box" alignment="CENTER" layoutX="321.0" layoutY="10.0" prefHeight="32.0" prefWidth="165.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -172,7 +172,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="ticket3DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="236.0" layoutY="56.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket3ArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="236.0" layoutY="56.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;" text=" ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -202,7 +202,7 @@
       <Pane layoutX="5.0" layoutY="647.0" prefHeight="182.0" prefWidth="700.0">
          <children>
             <Line endX="50.33331298828125" layoutX="205.0" layoutY="121.0" startX="-69.0" />
-            <TextField fx:id="ticket4DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="60.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket4DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="60.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;" text=" ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -212,7 +212,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="FlightNo4Box" alignment="CENTER" editable="false" layoutX="315.0" layoutY="17.0" prefHeight="32.0" prefWidth="165.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+            <TextField fx:id="departFlightNo4Box" alignment="CENTER" editable="false" layoutX="315.0" layoutY="17.0" prefHeight="32.0" prefWidth="165.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -222,7 +222,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="ticket4DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="229.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
+            <TextField fx:id="ticket4ArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="229.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;" text=" ">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -259,25 +259,25 @@
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="departureDateTextField" alignment="CENTER" editable="false" layoutX="114.0" layoutY="129.0" prefHeight="25.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+      <TextField fx:id="departureDateTextField" alignment="CENTER" editable="false" layoutX="114.0" layoutY="129.0" prefHeight="25.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" text=" " />
       <Label layoutX="246.0" layoutY="135.0" text="From : ">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="departureAirportTextField" alignment="CENTER" editable="false" layoutX="300.0" layoutY="129.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+      <TextField fx:id="departureAirportTextField" alignment="CENTER" editable="false" layoutX="300.0" layoutY="129.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" text=" " />
       <Label layoutX="374.0" layoutY="135.0" text="To : ">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="arrivalAirportTextField" alignment="CENTER" editable="false" layoutX="402.0" layoutY="129.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+      <TextField fx:id="arrivalAirportTextField" alignment="CENTER" editable="false" layoutX="402.0" layoutY="129.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" text=" " />
       <Label layoutX="473.0" layoutY="135.0" text="Trip : ">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="tripTypeTextField" alignment="CENTER" editable="false" layoutX="512.0" layoutY="129.0" prefHeight="32.0" prefWidth="138.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+      <TextField fx:id="tripTypeTextField" alignment="CENTER" editable="false" layoutX="512.0" layoutY="129.0" prefHeight="32.0" prefWidth="138.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" text=" " />
       <Hyperlink fx:id="SanrioAirlines" layoutX="25.0" layoutY="23.0" onAction="#onMainMenuLinkClicked" text="Sanrio Airline" />
       <Separator layoutX="6.0" layoutY="637.0" prefHeight="10.0" prefWidth="700.0" style="-fx-background-color: #F08080; -fx-background-color: #D4EEF1;">
          <cursor>
