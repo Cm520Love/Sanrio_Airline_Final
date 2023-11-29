@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -19,273 +10,273 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="830.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.demo.DepartFlightsController">
-   <children>
-      <ImageView fx:id="FlightTicketsImageView" fitHeight="830.0" fitWidth="713.0" layoutY="1.0" opacity="0.57" pickOnBounds="true">
-         <image>
-            <Image url="@../../images/321713ab4fd29eb6b1f95d2f48486076.jpg" />
-         </image>
-      </ImageView>
-      <Pane layoutX="5.0" layoutY="161.0" prefHeight="175.0" prefWidth="713.0">
-         <children>
-            <Line endX="50.33331298828125" layoutX="207.0" layoutY="132.0" startX="-69.0" />
-            <Label layoutX="234.0" layoutY="33.0" text="FlightNo : ">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="FlightNo1Box" alignment="CENTER" editable="false" layoutX="314.0" layoutY="27.0" prefHeight="32.0" prefWidth="175.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </TextField>
-            <Label layoutX="86.0" layoutY="122.0" text="Depart">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="ticket1DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="233.0" layoutY="78.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="266.0" layoutY="124.0" text="Arrival">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="ticket1PriceTextField" alignment="CENTER" editable="false" layoutX="415.0" layoutY="77.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #D8BFD8; -fx-border-color: #FFC0CB; -fx-border-width: 3;" text="\$282">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="431.0" layoutY="123.0" text="Ticket Price" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <Button fx:id="departureTicket1AddButton" alignment="CENTER" layoutX="580.0" layoutY="82.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Button>
-            <Separator layoutX="3.0" layoutY="157.0" prefHeight="10.0" prefWidth="700.0" style="-fx-background-color: #F08080; -fx-background-color: #D4EEF1;">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Separator>
-            <Separator layoutY="9.0" prefHeight="10.0" prefWidth="706.0" style="-fx-background-color: #F08080; -fx-background-color: #D4EEF1;">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Separator>
-            <TextField fx:id="ticket1DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="59.0" layoutY="75.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-         </children>
-      </Pane>
-      <Label layoutX="243.0" layoutY="76.0" text="Sanrio Depart Flight Tickets">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Label>
-      <Pane layoutX="5.0" layoutY="325.0" prefHeight="168.0" prefWidth="706.0">
-         <children>
-            <Line endX="50.33331298828125" layoutX="205.0" layoutY="119.0" startX="-69.0" />
-            <TextField fx:id="ticket2DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="59.0" layoutY="60.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="234.0" layoutY="24.0" text="FlightNo : ">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="FlightNo2Box" alignment="CENTER" layoutX="314.0" layoutY="18.0" prefHeight="32.0" prefWidth="165.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </TextField>
-            <Label layoutX="84.0" layoutY="109.0" text="Depart">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="ticket2DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="233.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="264.0" layoutY="111.0" text="Arrival">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="ticket2PriceTextField" alignment="CENTER" editable="false" layoutX="415.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #D8BFD8; -fx-border-color: #FFC0CB; -fx-border-width: 3;" text="\$300">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="432.0" layoutY="109.0" text="Ticket Price" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <Button fx:id="departureTicket2AddButton" alignment="CENTER" layoutX="581.0" layoutY="68.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Button>
-            <Separator layoutX="4.0" layoutY="149.0" prefHeight="10.0" prefWidth="693.0" style="-fx-background-color: #F08080; -fx-background-color: #D4EEF1;">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Separator>
-         </children>
-      </Pane>
-      <Pane layoutX="-1.0" layoutY="485.0" prefHeight="157.0" prefWidth="713.0">
-         <children>
-            <Line endX="50.33331298828125" layoutX="210.0" layoutY="109.0" startX="-69.0" />
-            <TextField fx:id="ticket3DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="66.0" layoutY="56.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="240.0" layoutY="17.0" text="FlightNo : ">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="FlightNo3Box" alignment="CENTER" layoutX="321.0" layoutY="10.0" prefHeight="32.0" prefWidth="165.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </TextField>
-            <Label layoutX="91.0" layoutY="101.0" text="Depart">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="ticket3DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="236.0" layoutY="56.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="268.0" layoutY="101.0" text="Arrival">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="ticket3PriceTextField" alignment="CENTER" editable="false" layoutX="420.0" layoutY="56.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #D8BFD8; -fx-border-color: #FFC0CB; -fx-border-width: 3;" text="\$348">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="439.0" layoutY="102.0" text="Ticket Price" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <Button fx:id="departureTicket3AddButton" alignment="CENTER" layoutX="584.0" layoutY="66.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <Pane layoutX="5.0" layoutY="647.0" prefHeight="182.0" prefWidth="700.0">
-         <children>
-            <Line endX="50.33331298828125" layoutX="205.0" layoutY="121.0" startX="-69.0" />
-            <TextField fx:id="ticket4DepartureTimeTextField" alignment="CENTER" editable="false" layoutX="60.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="233.0" layoutY="23.0" text="FlightNo : ">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="FlightNo4Box" alignment="CENTER" editable="false" layoutX="315.0" layoutY="17.0" prefHeight="32.0" prefWidth="165.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </TextField>
-            <Label layoutX="87.0" layoutY="110.0" text="Depart">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="ticket4DepartureArrivalTimeTextField" alignment="CENTER" editable="false" layoutX="229.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #D8BFD8; -fx-border-width: 3;">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="262.0" layoutY="112.0" text="Arrival">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="ticket4PriceTextField" alignment="CENTER" editable="false" layoutX="415.0" layoutY="62.0" prefHeight="39.0" prefWidth="103.0" style="-fx-background-color: #D8BFD8; -fx-border-color: #FFC0CB; -fx-border-width: 3;" text="\$468">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </TextField>
-            <Label layoutX="429.0" layoutY="110.0" text="Ticket Price" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <Button fx:id="departureTicket4AddButton" alignment="CENTER" layoutX="576.0" layoutY="66.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="ADD" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Button>
-            <Separator layoutY="166.0" prefHeight="10.0" prefWidth="700.0" style="-fx-background-color: #F08080; -fx-background-color: #D4EEF1;">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Separator>
-         </children>
-      </Pane>
-      <Label layoutX="64.0" layoutY="135.0" text="Date : ">
-         <font>
-            <Font name="System Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="departureDateTextField" alignment="CENTER" editable="false" layoutX="114.0" layoutY="129.0" prefHeight="25.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
-      <Label layoutX="246.0" layoutY="135.0" text="From : ">
-         <font>
-            <Font name="System Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="departureAirportTextField" alignment="CENTER" editable="false" layoutX="300.0" layoutY="129.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
-      <Label layoutX="374.0" layoutY="135.0" text="To : ">
-         <font>
-            <Font name="System Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="arrivalAirportTextField" alignment="CENTER" editable="false" layoutX="402.0" layoutY="129.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
-      <Label layoutX="473.0" layoutY="135.0" text="Trip : ">
-         <font>
-            <Font name="System Bold Italic" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tripTypeTextField" alignment="CENTER" editable="false" layoutX="512.0" layoutY="129.0" prefHeight="32.0" prefWidth="138.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
-      <Hyperlink fx:id="SanrioAirlines" layoutX="25.0" layoutY="23.0" text="Sanrio Airline" />
-      <Separator layoutX="6.0" layoutY="637.0" prefHeight="10.0" prefWidth="700.0" style="-fx-background-color: #F08080; -fx-background-color: #D4EEF1;">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Separator>
-   </children>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="809.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.demo.DepartFlightsController">
+    <children>
+        <ImageView fx:id="ReturnTicketImageView" fitHeight="816.0" fitWidth="580.0" layoutX="-7.0" pickOnBounds="true">
+            <image>
+                <Image url="@../../images/c4a421677fc4d2e0afb4181f9a7dc4da.jpg" />
+            </image>
+        </ImageView>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" height="37.0" layoutX="126.0" layoutY="28.0" stroke="BLACK" strokeType="INSIDE" width="311.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9098039269447327" green="0.7215686440467834" blue="0.9215686321258545" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5215686559677124" green="0.8980392217636108" blue="1.0" opacity="0.9100000262260437" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+        <Rectangle arcHeight="50.0" arcWidth="50.0" height="698.0" layoutX="31.0" layoutY="75.0" opacity="0.99" stroke="BLACK" strokeType="INSIDE" width="504.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0" startY="0.3375394081091655">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.9196393489837646" green="0.911685049533844" blue="0.9912280440330505" opacity="0.9100000262260437" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.8742690086364746" green="0.6549707651138306" blue="0.9473684430122375" opacity="0.9100000262260437" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <Pane layoutX="5.0" layoutY="161.0" prefHeight="161.0" prefWidth="572.0">
+            <children>
+                <Line endX="32.333343505859375" layoutX="277.0" layoutY="121.0" startX="-69.0" />
+                <Label layoutX="184.0" layoutY="33.0" text="FlightNo : ">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="DepartTicketNo001" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3; -fx-border-radius: 25px; -fx-background-radius: 25px;">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="151.0" layoutY="111.0" text="Depart">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="ticket1DepartArrivalTimeTextfield" alignment="CENTER" editable="false" layoutX="307.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #FCF6BD; -fx-border-width: 3; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="328.0" layoutY="111.0" text="Arrival">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="DepartTicket1AddButton" alignment="CENTER" layoutX="438.0" layoutY="72.0" mnemonicParsing="false" onAction="#onReturnTicket1AddButtonClicked" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7; -fx-border-radius: 5px; -fx-background-radius: 5px;" text="ADD" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Separator layoutX="33.0" layoutY="143.0" prefHeight="10.0" prefWidth="483.0" style="-fx-background-color: #BF97D0;">
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Separator>
+                <Separator layoutX="37.0" layoutY="9.0" prefHeight="10.0" prefWidth="476.0" style="-fx-background-color: #BF97D0;">
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Separator>
+                <TextField fx:id="ticket1DepartTimeTextfield" alignment="CENTER" editable="false" layoutX="131.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #FCF6BD; -fx-border-width: 3; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TextField>
+            </children>
+        </Pane>
+        <Label alignment="CENTER" layoutX="130.0" layoutY="27.0" prefHeight="37.0" prefWidth="299.0" text="Sanrio Depart Flight Tickets">
+            <font>
+                <Font name="System Bold Italic" size="20.0" />
+            </font>
+        </Label>
+        <Label layoutX="80.0" layoutY="96.0" text="Date : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="DepartTicketDate" alignment="CENTER" editable="false" layoutX="136.0" layoutY="90.0" prefHeight="25.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0; -fx-background-radius: 25px; -fx-border-radius: 25px;" />
+        <Label layoutX="291.0" layoutY="96.0" text="From : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="DepartTicketFrom" alignment="CENTER" editable="false" layoutX="345.0" layoutY="90.0" prefHeight="32.0" prefWidth="62.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0; -fx-background-radius: 25px; -fx-border-radius: 25px;" />
+        <Label layoutX="300.0" layoutY="135.0" text="To : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="DepartTicketTo" alignment="CENTER" editable="false" layoutX="345.0" layoutY="129.0" prefHeight="32.0" prefWidth="62.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0; -fx-border-radius: 25px; -fx-background-radius: 25px;" />
+        <Label layoutX="82.0" layoutY="135.0" text="Trip : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="DepartTicketType" alignment="CENTER" editable="false" layoutX="136.0" layoutY="129.0" prefHeight="32.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0; -fx-background-radius: 25px; -fx-border-radius: 25px;" />
+        <Button fx:id="SanrioAirlineButton" layoutX="467.0" layoutY="14.0" mnemonicParsing="false" onAction="#onSanrioAirlineButtonClicked" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Sanrio Airline" />
+        <Pane layoutX="-1.0" layoutY="303.0" prefHeight="161.0" prefWidth="520.0">
+            <children>
+                <Line endX="32.333343505859375" layoutX="277.0" layoutY="121.0" startX="-69.0" />
+                <Label layoutX="184.0" layoutY="33.0" text="FlightNo : ">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="DepartTicketNo002" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="151.0" layoutY="111.0" text="Depart">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="ticket2DepartArrivalTimeTextfield" alignment="CENTER" editable="false" layoutX="307.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #FCF6BD; -fx-border-width: 3; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="328.0" layoutY="111.0" text="Arrival">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="DepartTicket2AddButton" alignment="CENTER" layoutX="438.0" layoutY="72.0" mnemonicParsing="false" onAction="#onReturnTicket2AddButtonClicked" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="ADD" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Separator layoutX="39.0" layoutY="143.0" prefHeight="10.0" prefWidth="483.0" style="-fx-background-color: #BF97D0;">
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Separator>
+                <TextField fx:id="ticket2DepartTimeTextfield" alignment="CENTER" editable="false" layoutX="131.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #FCF6BD; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-width: 3;">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TextField>
+            </children>
+        </Pane>
+        <Pane layoutX="-1.0" layoutY="446.0" prefHeight="161.0" prefWidth="520.0">
+            <children>
+                <Line endX="32.333343505859375" layoutX="277.0" layoutY="121.0" startX="-69.0" />
+                <Label layoutX="184.0" layoutY="33.0" text="FlightNo : ">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="DepartTicketNo003" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="151.0" layoutY="111.0" text="Depart">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="ticket3DepartArrivalTimeTextfield" alignment="CENTER" editable="false" layoutX="307.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #FCF6BD; -fx-border-width: 3; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="328.0" layoutY="111.0" text="Arrival">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="DepartTicket3AddButton" alignment="CENTER" layoutX="438.0" layoutY="72.0" mnemonicParsing="false" onAction="#onReturnTicket3AddButtonClicked" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="ADD" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Separator layoutX="39.0" layoutY="143.0" prefHeight="10.0" prefWidth="483.0" style="-fx-background-color: #BF97D0;">
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Separator>
+                <TextField fx:id="ticket3DepartTimeTextfield" alignment="CENTER" editable="false" layoutX="131.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #FCF6BD; -fx-border-width: 3; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TextField>
+            </children>
+        </Pane>
+        <Pane layoutX="-1.0" layoutY="587.0" prefHeight="161.0" prefWidth="520.0">
+            <children>
+                <Line endX="32.333343505859375" layoutX="277.0" layoutY="121.0" startX="-69.0" />
+                <Label layoutX="183.0" layoutY="33.0" text="FlightNo : ">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="DepartTicketNo004" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="151.0" layoutY="111.0" text="Depart">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="ticket4DepartArrivalTimeTextfield" alignment="CENTER" editable="false" layoutX="307.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #FCF6BD; -fx-border-width: 3; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="328.0" layoutY="111.0" text="Arrival">
+                    <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="DepartTicket4AddButton" alignment="CENTER" layoutX="438.0" layoutY="72.0" mnemonicParsing="false" onAction="#onReturnTicket4AddButtonClicked" prefHeight="29.0" prefWidth="69.0" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="ADD" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                    </font>
+                </Button>
+                <Separator layoutX="39.0" layoutY="143.0" prefHeight="10.0" prefWidth="483.0" style="-fx-background-color: #BF97D0;">
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Separator>
+                <TextField fx:id="ticket4DepartTimeTextfield" alignment="CENTER" editable="false" layoutX="131.0" layoutY="70.0" prefHeight="36.0" prefWidth="87.0" style="-fx-background-color: #FFC0CB; -fx-border-color: #FCF6BD; -fx-border-width: 3; -fx-background-radius: 10px; -fx-border-radius: 10px;">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TextField>
+            </children>
+        </Pane>
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
 </AnchorPane>
