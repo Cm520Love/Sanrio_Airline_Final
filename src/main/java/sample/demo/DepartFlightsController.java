@@ -26,6 +26,9 @@ public class DepartFlightsController implements Initializable{
     @FXML private TextField ticket3ArrivalTimeTextField;
     @FXML private TextField ticket4ArrivalTimeTextField;
     @FXML private  Button ticket1AddButton;
+    @FXML private  Button ticket2AddButton;
+    @FXML private  Button ticket3AddButton;
+    @FXML private  Button ticket4AddButton;
 
 
     static private HashMap<Integer, ArrayList<String>> allFlightTickets;
@@ -74,5 +77,14 @@ public class DepartFlightsController implements Initializable{
         System.out.println("going back to main menu");
         Starting.window.setScene(Starting.mainMenuAccessScene);
     }
+
+    @FXML
+    void onDepartTicket4AddButtonClicked() { }
+    @FXML
+    void onDepartTicket3AddButtonClicked() { }
+    @FXML
+    void onDepartTicket2AddButtonClicked() { }
+    @FXML
+    void onDepartTicket1AddButtonClicked() { }
 
 }

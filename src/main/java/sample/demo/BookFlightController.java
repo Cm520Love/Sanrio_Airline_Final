@@ -190,7 +190,7 @@ public class BookFlightController implements Initializable{
                 System.out.println("Searching for flights with your criteria...");
                 flightInformationVO.setCurrentFlightInfo(flightInformation);
                 loadingFlightsLabel.setVisible(true);
-                Starting.departTicketsPage = new FXMLLoader(getClass().getResource("departFlights.fxml"));
+                Starting.departTicketsPage = new FXMLLoader(getClass().getResource("depart2.fxml"));
                 Starting.departTicketsScene = new Scene(Starting.departTicketsPage.load());
                 Starting.window.setScene(Starting.departTicketsScene);
             }
