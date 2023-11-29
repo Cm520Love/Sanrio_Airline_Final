@@ -57,5 +57,9 @@ public class LoginController {
         Starting.window.setScene(Starting.signUpScene);
     }
 
+    @FXML
+    public void onForgotPasswordHyperlinkClicked() {
+        System.out.println("you forgot your password? that's crazy");
 
+    }
 }

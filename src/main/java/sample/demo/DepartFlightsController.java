@@ -36,4 +36,10 @@ public class DepartFlightsController {
         //ticket1DepartureTimeTextField.setText(allFlightTickets.get(1).get(5));
         //ticket1ArrivalTimeTextField.setText(allFlightTickets.get(1).get(6));
     }
+
+    @FXML
+    void onMainMenuLinkClicked() {
+        System.out.println("going back to main menu");
+        Starting.window.setScene(Starting.mainMenuAccessScene);
+    }
 }
