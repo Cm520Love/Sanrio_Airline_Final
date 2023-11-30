@@ -8,6 +8,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -48,14 +49,28 @@ public class UserProfileController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Load user details from the database when the form is initialized
-        loadUserDetails();
+        // Get the current user before loading user details
+        String Username = Starting.getCurrentUser();
+
+        if (Username != null && !Username.isEmpty()) {
+            // Load user details from the database when the form is initialized
+            loadUserDetails(Username);
+        } else {
+            // Handle the case where the user is not logged in
+            System.out.println("User not logged in.");
+        }
     }
 
-    private void loadUserDetails() {
+    private String getCurrentUser() {
+        // Implement the logic to get the current user from your application
+        // For example, you might have a session management system or some other way to track the logged-in user
+        return Starting.getCurrentUser();
+    }
+
+    private void loadUserDetails(String username) {
         // Implement your logic to load user details from the database
         // You may use the SelectDB method in the Customer class or any other method you have
-        customer.selectDB(Starting.getCurrentUser()); // assuming you want to load details for a specific user
+        customer.selectDB(username); // assuming you want to load details for a specific user
 
         // Set the retrieved information to the corresponding text fields
         ProfileFirstNameBox.setText(customer.getFirstName());
@@ -67,7 +82,7 @@ public class UserProfileController implements Initializable {
         ProfileSSNBox.setText(customer.getSSN());
         ProfileSQuestionBox.setText(customer.getSecurityQuestion());
         ProfileSAnsBox.setText(customer.getSecurityAnswer());
-        ProfileUsernameBox.setText(customer.getUsername());
+        ProfileUsernameBox.setText(username); // Set the username directly from the parameter
         ProfilePasswordBox.setText(customer.getPassword());
     }
 
@@ -126,6 +141,11 @@ public class UserProfileController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText(content);
         alert.showAndWait();
+    }
+
+    public void onSanioAirlineClicked(javafx.event.ActionEvent actionEvent) {
+        System.out.println("Going to the main menu.....");
+        Starting.window.setScene(Starting.mainMenuAccessScene);
     }
 }
 

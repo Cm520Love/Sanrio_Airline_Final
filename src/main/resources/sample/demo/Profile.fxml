@@ -111,7 +111,7 @@
         <TextField fx:id="ProfileSAnsBox" layoutX="234.0" layoutY="341.0" prefHeight="25.0" prefWidth="218.0" />
         <TextField fx:id="ProfileUsernameBox" editable="false" layoutX="256.0" layoutY="450.0" prefHeight="25.0" prefWidth="149.0" />
         <TextField fx:id="ProfilePasswordBox" layoutX="256.0" layoutY="539.0" />
-        <Hyperlink fx:id="SanrioAirline" layoutX="21.0" layoutY="21.0" text="Sanrio Airline" />
+        <Hyperlink fx:id="SanrioAirline" layoutX="21.0" layoutY="21.0" onAction="#onSanioAirlineClicked" text="Sanrio Airline" />
         <Button fx:id="ProfileUpdateButton" alignment="CENTER" layoutX="303.0" layoutY="594.0" mnemonicParsing="false" onAction="#onProfileUpdateButtonClicked" style="-fx-background-color: pink;" text="Update" />
         <TextField fx:id="ProfileSQuestionBox" editable="false" layoutX="234.0" layoutY="293.0" prefHeight="25.0" prefWidth="218.0" />
     </children>

@@ -34,6 +34,7 @@ public class LoginController {
     @FXML private Hyperlink forgotPasswordHyperlink;
     @FXML private Hyperlink signUpHyperlink;
 
+
     @FXML
     public void onLoginButtonClicked() {
         String username = usernameEntry.getText();
@@ -62,6 +63,7 @@ public class LoginController {
     @FXML
     public void onForgotPasswordHyperlinkClicked() {
         System.out.println("you forgot your password? that's crazy");
+        Starting.window.setScene(Starting.forgotPasswordScene);
 
     }
 

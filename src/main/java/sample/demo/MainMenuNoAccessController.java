@@ -24,4 +24,9 @@ public class MainMenuNoAccessController {
 
         Starting.window.setScene(Starting.signUpScene);
     }
+    @FXML
+    public void onForgotPasswordHyperlinkClicked() {
+        System.out.println("going to the password recovery page...");
+        Starting.window.setScene(Starting.forgotPasswordScene);
+    }
 }

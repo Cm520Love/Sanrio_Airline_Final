@@ -1,5 +1,8 @@
 package sample.demo;
 import javafx.fxml.*;
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.ArrayList;
 import javafx.scene.control.*;
@@ -79,12 +82,116 @@ public class DepartFlightsController implements Initializable{
     }
 
     @FXML
-    void onDepartTicket4AddButtonClicked() { }
-    @FXML
-    void onDepartTicket3AddButtonClicked() { }
-    @FXML
-    void onDepartTicket2AddButtonClicked() { }
-    @FXML
-    void onDepartTicket1AddButtonClicked() { }
+    void onDepartTicket1AddButtonClicked() {
+        addInformationToDatabase(
+                Starting.getCurrentUser(),
+                departureDateTextField.getText(),
+                ticket1DepartureTimeTextField.getText(),
+                ticket1ArrivalTimeTextField.getText(),
+                departFlightNo1Box.getText()
+        );
+        System.out.println("Adding 1st Depart Tickets to Database....");
+        // Additional logic or scene transition if needed
+    }
 
-}
+
+    @FXML
+    void onDepartTicket2AddButtonClicked() {
+        addInformationToDatabase(
+                Starting.getCurrentUser(),
+                departureDateTextField.getText(),
+                ticket2DepartureTimeTextField.getText(),
+                ticket2ArrivalTimeTextField.getText(),
+                departFlightNo2Box.getText()
+        );
+        System.out.println("Adding 2nd Depart Tickets to Database....");
+        // Additional logic or scene transition if needed
+    }
+
+    @FXML
+    void onDepartTicket3AddButtonClicked() {
+        addInformationToDatabase(
+                Starting.getCurrentUser(),
+                departureDateTextField.getText(),
+                ticket3DepartureTimeTextField.getText(),
+                ticket3ArrivalTimeTextField.getText(),
+                departFlightNo3Box.getText()
+        );
+        System.out.println("Adding 3rd Depart Tickets to Database....");
+        // Additional logic or scene transition if needed
+    }
+
+    @FXML
+    void onDepartTicket4AddButtonClicked() {
+            addInformationToDatabase(
+                    Starting.getCurrentUser(),
+                    departureDateTextField.getText(),
+                    ticket4DepartureTimeTextField.getText(),
+                    ticket4ArrivalTimeTextField.getText(),
+                    departFlightNo4Box.getText()
+            );
+            System.out.println("Adding 4th Depart Tickets to Database....");
+            // Additional logic or scene transition if needed
+        }
+
+    private void addInformationToDatabase(String Username, String DepartureDate, String DepartureTime, String ArrivalTime, String FlightID) {
+        try {
+            // Check if the user has already booked this flight
+            if (hasUserBookedFlight(Username, FlightID)) {
+                // Show a popup indicating that the user has already booked this flight
+                showErrorPopup("Booking Error", "You have already booked this flight.");
+                return;  // Do not proceed with the insertion
+            }
+
+            // Insert the new booking information
+            PreparedStatement ps = Starting.conn.prepareStatement("INSERT INTO BookedFlights VALUES (?,?,?,?,?)");
+            ps.setString(1, Username);
+            ps.setString(2, DepartureDate);
+            ps.setString(3, DepartureTime);
+            ps.setString(4, ArrivalTime);
+            ps.setString(5, FlightID);
+            ps.execute();
+
+            // Optionally, you can show a success popup or perform additional logic
+            showSuccessPopup("Booking Successful", "You have successfully booked the flight.");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the SQLException appropriately (e.g., show an error popup)
+            showErrorPopup("Booking Error", "An error occurred while booking the flight. Please try again.");
+        }
+    }
+
+    // Check if the user has already booked this flight
+    private boolean hasUserBookedFlight(String username, String flightID) {
+        try {
+            PreparedStatement ps = Starting.conn.prepareStatement("SELECT * FROM BookedFlights WHERE Username = ? AND FlightID = ?");
+            ps.setString(1, username);
+            ps.setString(2, flightID);
+            return ps.executeQuery().next();  // Returns true if a record is found
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the SQLException appropriately
+            return false;
+
+        }
+
+    }
+
+    private void showSuccessPopup(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    private void showErrorPopup(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+    }
+

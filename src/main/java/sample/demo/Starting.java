@@ -54,7 +54,7 @@ public class Starting extends Application {
             bookFlightPage = new FXMLLoader(getClass().getResource("bookFlight.fxml"));
             adminboardPage = new FXMLLoader(getClass().getResource("AdminBoard.fxml"));
             profilePage = new FXMLLoader(getClass().getResource("Profile.fxml"));
-            //forgotPasswordPage = new FXMLLoader(getClass().getResource(""));
+            forgotPasswordPage = new FXMLLoader(getClass().getResource("PasswordRecovery.fxml"));
 
             // creating scenes for all the pages
             splashScreenScene = new Scene(root);
@@ -65,7 +65,8 @@ public class Starting extends Application {
             bookFlightScene = new Scene(bookFlightPage.load());
             adminboardScene = new Scene(adminboardPage.load());
             ProfileScene = new Scene(profilePage.load());
-
+            forgotPasswordScene = new Scene(forgotPasswordPage.load());
+            
 
             // showing the splash screen on startup
             window.setScene(splashScreenScene);
