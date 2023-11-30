@@ -21,6 +21,9 @@ public class MainMenuAccessController {
     @FXML
     private Hyperlink logoutHyperlink;
 
+    @FXML
+    private Hyperlink ProfileHyperlink;
+
 
 
     @FXML
@@ -39,6 +42,11 @@ public class MainMenuAccessController {
     void onBookFlightHyperlinkClicked() {
         System.out.println("going to book a flight...");
         Starting.window.setScene(Starting.bookFlightScene);
+    }
+    @FXML
+    void onProfileHyperlinkClicked() {
+        System.out.println("going to the user profile...");
+        Starting.window.setScene(Starting.ProfileScene);
     }
 
 
