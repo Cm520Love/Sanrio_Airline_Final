@@ -46,6 +46,12 @@ public class PasswordRecoveryController {
 
     @FXML
     private Hyperlink SanrioAirline;
+
+    @FXML
+    void onMainMenuHyperlinkClicked(ActionEvent event) {
+        System.out.println("Going to the main menu no access Page .....");
+        Starting.window.setScene(Starting.mainMenuNoAccessScene);
+    }
     @FXML
     void onPasswordRecoveryLoginButtonClicked(ActionEvent event) {
         System.out.println("Going to the Login Page .....");

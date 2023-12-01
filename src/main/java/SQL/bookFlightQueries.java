@@ -1,6 +1,8 @@
 package SQL;
 import java.sql.*;
 import java.util.HashMap;
+
+import sample.demo.Starting;
 import userInformation.UserInformation;
 import static sample.demo.Starting.conn;
 
@@ -13,6 +15,11 @@ public class bookFlightQueries {
     static PreparedStatement pStatement;
     static ResultSet result;
 
+    private final static int MAX_PASSENGERS = 4;
+
+    public static int getMaxPassengers() {
+        return MAX_PASSENGERS;
+    }
     public static ArrayList<String[]> getAirports(String stateAbbreviation) {
         java.util.ArrayList<String[]> cityAirports = new java.util.ArrayList<>();
         try {
@@ -141,6 +148,6 @@ public class bookFlightQueries {
         }
 
         return availableFlights;
-    }
 
+    }
 }

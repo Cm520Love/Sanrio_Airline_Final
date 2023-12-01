@@ -14,7 +14,6 @@ public class MainMenuNoAccessController {
     @FXML
     public void onLoginHyperlinkClicked() {
         System.out.println("going to the login page...");
-
         Starting.window.setScene(Starting.loginScene);
     }
 

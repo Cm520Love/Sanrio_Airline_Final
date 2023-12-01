@@ -15,7 +15,7 @@ public class SplashScreenController {
 
     protected static void transition() {
         Timeline timeline = new Timeline(
-            new KeyFrame(Duration.seconds(3), event -> Starting.window.setScene(sample.demo.Starting.mainMenuNoAccessScene))
+            new KeyFrame(Duration.seconds(1), event -> Starting.window.setScene(sample.demo.Starting.mainMenuNoAccessScene))
         );
 
         timeline.play();

@@ -68,7 +68,7 @@
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="ReturnTicketNo001" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+                <TextField fx:id="returnFlightNo1Box" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
@@ -120,26 +120,26 @@
                 <Font name="System Bold Italic" size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="ReturnTicketDate" alignment="CENTER" editable="false" layoutX="136.0" layoutY="90.0" prefHeight="25.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+        <TextField fx:id="ReturnTicketDateBox" alignment="CENTER" editable="false" layoutX="136.0" layoutY="90.0" prefHeight="25.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
         <Label layoutX="291.0" layoutY="96.0" text="From : ">
             <font>
                 <Font name="System Bold Italic" size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="ReturnTicketFrom" alignment="CENTER" editable="false" layoutX="345.0" layoutY="90.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+        <TextField fx:id="ReturnTicketFromBox" alignment="CENTER" editable="false" layoutX="345.0" layoutY="90.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
         <Label layoutX="300.0" layoutY="135.0" text="To : ">
             <font>
                 <Font name="System Bold Italic" size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="ReturnTicketTo" alignment="CENTER" editable="false" layoutX="345.0" layoutY="129.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+        <TextField fx:id="ReturnTicketToBox" alignment="CENTER" editable="false" layoutX="345.0" layoutY="129.0" prefHeight="32.0" prefWidth="55.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
         <Label layoutX="82.0" layoutY="135.0" text="Trip : ">
             <font>
                 <Font name="System Bold Italic" size="14.0" />
             </font>
         </Label>
-        <TextField fx:id="ReturnTicketType" alignment="CENTER" editable="false" layoutX="136.0" layoutY="129.0" prefHeight="32.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
-        <Button fx:id="SanrioAirlineButton" layoutX="467.0" layoutY="14.0" mnemonicParsing="false" onAction="#onSanrioAirlineButtonClicked" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="Sanrio Airline" />
+        <TextField fx:id="ReturnTicketTypeBox" alignment="CENTER" editable="false" layoutX="136.0" layoutY="129.0" prefHeight="32.0" prefWidth="113.0" style="-fx-border-width: 3; -fx-border-color: #BF97D0;" />
+        <Button fx:id="SanrioAirlineButton" layoutX="467.0" layoutY="14.0" mnemonicParsing="false" onAction="#onSanrioAirlineButtonClicked" style="-fx-border-color: #C4F5FC; -fx-border-width: 3; -fx-background-color: #E8FFB7;" text="Main Menu" />
         <Pane layoutX="-1.0" layoutY="303.0" prefHeight="161.0" prefWidth="520.0">
             <children>
                 <Line endX="32.333343505859375" layoutX="277.0" layoutY="121.0" startX="-69.0" />
@@ -148,7 +148,7 @@
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="ReturnTicketNo002" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+                <TextField fx:id="returnFlightNo2Box" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
@@ -193,7 +193,7 @@
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="ReturnTicketNo003" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+                <TextField fx:id="returnFlightNo3Box" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>
@@ -238,7 +238,7 @@
                         <Font name="System Bold Italic" size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="ReturnTicketNo004" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
+                <TextField fx:id="returnFlightNo4Box" alignment="CENTER" editable="false" layoutX="268.0" layoutY="27.0" prefHeight="32.0" prefWidth="87.0" style="-fx-border-color: #BF97D0; -fx-border-width: 3;">
                     <font>
                         <Font name="System Bold" size="12.0" />
                     </font>

@@ -13,10 +13,12 @@ public class Starting extends Application {
     private FXMLLoader signUpPage;
     private FXMLLoader bookFlightPage;
     static FXMLLoader departTicketsPage;
+    private FXMLLoader myTripPage;
 
     private FXMLLoader adminboardPage;
     private FXMLLoader profilePage;
     private FXMLLoader forgotPasswordPage;
+    private FXMLLoader returnFlightPage;
 
     static Scene mainMenuNoAccessScene;
     static Scene loginScene;
@@ -28,6 +30,8 @@ public class Starting extends Application {
     static Scene adminboardScene;
     static Scene ProfileScene;
     static Scene forgotPasswordScene;
+    static Scene returnFlightScene;
+    static Scene myTripScene;
     public static java.sql.Connection conn;
     public static void main(String[] args) { launch(args); }
 
@@ -55,6 +59,9 @@ public class Starting extends Application {
             adminboardPage = new FXMLLoader(getClass().getResource("AdminBoard.fxml"));
             profilePage = new FXMLLoader(getClass().getResource("Profile.fxml"));
             forgotPasswordPage = new FXMLLoader(getClass().getResource("PasswordRecovery.fxml"));
+            returnFlightPage = new FXMLLoader(getClass().getResource("ReturnFlight.fxml"));
+            myTripPage = new FXMLLoader(getClass().getResource("MyTrip.fxml"));
+
 
             // creating scenes for all the pages
             splashScreenScene = new Scene(root);
@@ -66,7 +73,8 @@ public class Starting extends Application {
             adminboardScene = new Scene(adminboardPage.load());
             ProfileScene = new Scene(profilePage.load());
             forgotPasswordScene = new Scene(forgotPasswordPage.load());
-            
+            returnFlightScene = new Scene(returnFlightPage.load());
+            myTripScene = new Scene(myTripPage.load());
 
             // showing the splash screen on startup
             window.setScene(splashScreenScene);
