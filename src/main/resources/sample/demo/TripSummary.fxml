@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="664.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.demo.TripSummaryController">
+   <children>
+      <ImageView fitHeight="664.0" fitWidth="718.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../images/979a48f6d0ac75ff519e016efe107dd9.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="DeleteFlightButton" layoutX="229.0" layoutY="554.0" mnemonicParsing="false" onAction="#onDeleteFightButtonClicked" style="-fx-border-color: pink; -fx-border-width: 3; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Delete Flight" />
+      <Button fx:id="MainMenuButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onMainMenuButtonClicked" style="-fx-border-color: pink; -fx-border-width: 3; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Main Menu" />
+      <TextField layoutX="229.0" layoutY="34.0" prefHeight="46.0" prefWidth="254.0" style="-fx-background-radius: 25px; -fx-border-color: pink; -fx-border-radius: 25px; -fx-border-width: 3;" text="My Upcoming Sanrio Trips">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="GetFlightInformationButton" layoutX="338.0" layoutY="554.0" mnemonicParsing="false" onAction="#onGetFlightInformationButtonClicked" style="-fx-border-color: pink; -fx-border-width: 3; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Get Flight Information" />
+      <TextField fx:id="InsertUsernameBox" editable="false" layoutX="326.0" layoutY="103.0" prefHeight="25.0" prefWidth="119.0" />
+      <ListView fx:id="flightListView" layoutX="145.0" layoutY="175.0" prefHeight="156.0" prefWidth="388.0" />
+      <TextField alignment="CENTER" layoutX="144.0" layoutY="146.0" prefHeight="25.0" prefWidth="388.0" text="Here is all your flights ....">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="FlightDetailsTextArea" layoutX="144.0" layoutY="385.0" prefHeight="137.0" prefWidth="388.0" />
+      <TextField alignment="CENTER" layoutX="144.0" layoutY="356.0" prefHeight="25.0" prefWidth="388.0" text="Here is your flight details ....">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="227.0" layoutY="106.0" text="Current User : ">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

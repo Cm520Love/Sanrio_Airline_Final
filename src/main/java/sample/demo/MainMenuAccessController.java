@@ -28,8 +28,8 @@ public class MainMenuAccessController {
 
     @FXML
     void onMyTripsHyperlinkClicked() {
-        System.out.println("going to the my trip page...");
-        Starting.window.setScene(Starting.myTripScene);
+        System.out.println("going to the trip summary page...");
+        Starting.window.setScene(Starting.tripsummaryScene);
     }
 
 
@@ -47,7 +47,7 @@ public class MainMenuAccessController {
     @FXML
     void onProfileHyperlinkClicked() {
         System.out.println("going to the user profile...");
-        Starting.window.setScene(Starting.ProfileScene);
+        Starting.window.setScene(Starting.profileScene);
     }
 
 

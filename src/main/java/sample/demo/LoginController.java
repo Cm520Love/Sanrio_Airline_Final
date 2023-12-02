@@ -1,6 +1,7 @@
 package sample.demo;
 
 import javafx.fxml.*;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.shape.*;
@@ -40,10 +41,19 @@ public class LoginController {
         String username = usernameEntry.getText();
         String password = passwordEntry.getText();
 
-        if (SQL.Access.getAccess(username, password)) {
-            System.out.println("login successful");
-            Starting.setCurrentUser(username);
-            Starting.window.setScene(Starting.mainMenuAccessScene);
+        try {
+            if (SQL.Access.getAccess(username, password)) {
+                System.out.println("login successful");
+                Starting.setCurrentUser(username);
+                Starting.window.setScene(Starting.mainMenuAccessScene);
+                Starting.tripSummaryPage = new FXMLLoader(getClass().getResource("TripSummary.fxml"));
+                Starting.tripsummaryScene = new Scene(Starting.tripSummaryPage.load());
+                Starting.profilePage = new FXMLLoader(getClass().getResource("Profile.fxml"));
+                Starting.profileScene = new Scene(Starting.profilePage.load());
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
         }
     }
 

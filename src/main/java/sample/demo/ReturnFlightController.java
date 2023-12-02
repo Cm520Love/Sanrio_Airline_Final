@@ -21,7 +21,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ReturnFlightController implements Initializable {
+ //public class ReturnFlightController implements Initializable {
+    public class ReturnFlightController {
 
     @FXML
     private Label ReturnFlightTitle;
@@ -92,12 +93,13 @@ public class ReturnFlightController implements Initializable {
     @FXML
     private TextField ticket4ReturnTimeTextfield;
 
+
     @FXML
     void onSanrioAirlineButtonClicked(ActionEvent event) {
         System.out.println("Going to the main menu .....");
         Starting.window.setScene(Starting.mainMenuAccessScene);
     }
-
+/*
     static private HashMap<Integer, ArrayList<String>> allFlightTickets;
 
     @Override
@@ -136,7 +138,7 @@ public class ReturnFlightController implements Initializable {
         }
     }
 
-
+*/
     @FXML
     void onReturnTicket1AddButtonClicked(ActionEvent event) {
         addReturnInformationToDatabase(
@@ -228,8 +230,8 @@ public class ReturnFlightController implements Initializable {
             incrementPassengers(FlightID);
 
             if(flightInformationVO.getCurrentFlightInfo().get(0).getInfo() == "Round") {
-                System.out.println("going to the My Trip page...");
-                Starting.window.setScene(Starting.myTripScene);
+                System.out.println("going to the tripsummary page...");
+                Starting.window.setScene(Starting.tripsummaryScene);
 
             }
             else{
@@ -346,7 +348,6 @@ public class ReturnFlightController implements Initializable {
             e.printStackTrace();
         }
     }
-
 }
 
 
