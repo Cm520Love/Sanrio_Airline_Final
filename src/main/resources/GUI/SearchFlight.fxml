@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SearchFlightController">
+   <children>
+      <ImageView fx:id="backgroundImage" fitHeight="686.0" fitWidth="833.0" layoutY="-4.0" opacity="0.46" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/28a8770b89b5039f94374c50c6586df2.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="20.0" arcWidth="30.0" fill="#c5b9dc" height="439.0" layoutX="52.0" layoutY="73.0" stroke="BLACK" strokeType="INSIDE" width="631.0" />
+      <Pane layoutX="415.0" layoutY="8.0" prefHeight="53.0" prefWidth="302.0">
+         <children>
+            <Rectangle arcHeight="20.0" arcWidth="30.0" fill="#c5b9dc" height="28.0" layoutX="117.0" layoutY="13.0" stroke="BLACK" strokeType="INSIDE" width="87.0" />
+            <Hyperlink fx:id="myTripsHyperlink" layoutX="126.0" layoutY="13.0" onAction="#onMyTripsHyperlinkClicked" text="My Trips" textFill="#1c7eff">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Hyperlink>
+            <Rectangle arcHeight="20.0" arcWidth="30.0" fill="#c5b9dc" height="28.0" layoutX="213.0" layoutY="13.0" stroke="BLACK" strokeType="INSIDE" width="75.0" />
+            <Hyperlink fx:id="logoutHyperlink" layoutX="222.0" layoutY="12.0" onAction="#onLogoutHyperlinkClicked" text="Logout" textFill="#1c7eff">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Hyperlink>
+            <Rectangle arcHeight="20.0" arcWidth="30.0" fill="#c5b9dc" height="28.0" layoutX="-4.0" layoutY="13.0" stroke="BLACK" strokeType="INSIDE" width="112.0" />
+            <Hyperlink fx:id="mainMenuHyperlink" layoutX="7.0" layoutY="12.0" onAction="#onMainMenuHyperlinkClicked" text="Main Menu" textFill="#1c7eff">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </Pane>
+      <Pane layoutX="66.0" layoutY="93.0" prefHeight="93.0" prefWidth="602.0">
+         <children>
+            <Label layoutX="6.0" layoutY="17.0" text="From:">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="fromStateComboBox" layoutX="7.0" layoutY="41.0" prefHeight="27.0" prefWidth="87.0" promptText="State" />
+            <ComboBox fx:id="fromCityComboBox" layoutX="102.0" layoutY="41.0" prefWidth="150.0" promptText="City" />
+            <Label layoutX="348.0" layoutY="18.0" text="To:">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="toStateComboBox" layoutX="349.0" layoutY="41.0" prefHeight="27.0" prefWidth="87.0" promptText="State" />
+            <ComboBox fx:id="toCityComboBox" layoutX="444.0" layoutY="41.0" prefWidth="150.0" promptText="City" />
+            <Line endX="60.0" layoutX="271.0" layoutY="54.0" startX="-1.0" />
+            <Label fx:id="fromStateError" layoutX="7.0" layoutY="71.0" textFill="RED" />
+            <Label fx:id="fromCityError" layoutX="102.0" layoutY="71.0" textFill="RED" />
+            <Label fx:id="toStateError" layoutX="352.0" layoutY="71.0" textFill="RED" />
+            <Label fx:id="toCityError" layoutX="444.0" layoutY="70.0" textFill="RED" />
+         </children>
+      </Pane>
+      <Pane layoutX="64.0" layoutY="183.0" prefHeight="86.0" prefWidth="150.0">
+         <children>
+            <Label layoutX="11.0" layoutY="11.0" text="Type of Trip:">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="tripTypeChoiceBox" layoutX="9.0" layoutY="39.0" prefHeight="27.0" prefWidth="123.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="231.0" layoutY="192.0" prefHeight="88.0" prefWidth="255.0">
+         <children>
+            <Label layoutX="8.0" layoutY="2.0" text="Depart">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="departDatePicker" layoutX="8.0" layoutY="32.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="returnDatePane" layoutX="451.0" layoutY="193.0" prefHeight="88.0" prefWidth="255.0">
+         <children>
+            <Label layoutX="8.0" layoutY="2.0" text="Return">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="returnDatePicker" layoutX="8.0" layoutY="32.0" />
+            <Label fx:id="returnError" layoutX="8.0" layoutY="66.0" textFill="RED" />
+         </children>
+      </Pane>
+      <Button fx:id="searchFlightsButton" layoutX="284.0" layoutY="329.0" mnemonicParsing="false" onAction="#onSearchFlightsButtonClicked" prefHeight="32.0" prefWidth="150.0" text="Search Flights">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

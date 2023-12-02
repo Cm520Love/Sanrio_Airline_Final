@@ -1,5 +1,9 @@
 package SQL;
+import javafx.beans.value.ObservableValue;
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookedFlights {
     private String Username, DepartureDate, DepartureTime, ArrivalTime,FlightID;
@@ -46,6 +50,39 @@ public class BookedFlights {
          *********************/
     }
 
+    public static List<BookedFlights> getAllBookedFlights() {
+        List<BookedFlights> bookedFlightsList = new ArrayList<>();
+
+        try {
+            System.out.println("Selecting all data ...");
+            String url = "jdbc:sqlserver://test-sunnysqlserver.database.windows.net:1433;database=Sanrio_Airlines;user=stinkysnoopy@test-sunnysqlserver;password=AdminPass!!!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+            try (Connection conn = DriverManager.getConnection(url)) {
+                Statement stmt = conn.createStatement();
+                ResultSet rs;
+                String sql = "Select * From BookedFlights";
+                rs = stmt.executeQuery(sql);
+
+                // Process ResultSet and add each record to the list
+                while (rs.next()) {
+                    BookedFlights bookedFlight = new BookedFlights(
+                            rs.getString("Username"),
+                            rs.getString("DepartureDate"),
+                            rs.getString("DepartureTime"),
+                            rs.getString("ArrivalTime"),
+                            rs.getString("FlightID")
+                    );
+                    bookedFlightsList.add(bookedFlight);
+                }
+            }
+        } catch (SQLException se) {
+            se.printStackTrace();
+        }
+
+        return bookedFlightsList;
+    }
+
+    // Existing code...
+
     public void display() {
         System.out.println("Username" + Username + " DepartureDate: " + DepartureDate
                 + "DepartureTime: " + DepartureTime + "ArrivalTime: " + ArrivalTime + "FlightID: " + FlightID);
@@ -68,7 +105,6 @@ public class BookedFlights {
             ResultSet rs;
             String sql = ("Select * From BookedFlights Where Username = '" + Username + "'");
             rs = stmt.executeQuery(sql);
-
 
             //Process ResultSet
             while (rs.next()) {
@@ -193,10 +229,3 @@ public class BookedFlights {
     public void setFlightID(String FlightID) {this.FlightID = FlightID;}
 
 }
-
-
-
-
-
-
-
