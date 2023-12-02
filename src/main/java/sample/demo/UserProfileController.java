@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 
 import java.awt.event.ActionEvent;
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.Alert;
@@ -49,42 +50,45 @@ public class UserProfileController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Get the current user before loading user details
         String Username = Starting.getCurrentUser();
+        GettingAllCustomerInfo();
 
-        if (Username != null && !Username.isEmpty()) {
-            // Load user details from the database when the form is initialized
-            loadUserDetails(Username);
-        } else {
-            // Handle the case where the user is not logged in
-            System.out.println("User not logged in.");
-        }
     }
 
-    private String getCurrentUser() {
-        // Implement the logic to get the current user from your application
-        // For example, you might have a session management system or some other way to track the logged-in user
-        return Starting.getCurrentUser();
-    }
+    private void GettingAllCustomerInfo() {
+        String Username = Starting.getCurrentUser();
+        ProfileUsernameBox.setText(Username);
+        String url = "jdbc:sqlserver://test-sunnysqlserver.database.windows.net:1433;database=Sanrio_Airlines;user=stinkysnoopy@test-sunnysqlserver;password=AdminPass!!!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 
-    private void loadUserDetails(String username) {
-        // Implement your logic to load user details from the database
-        // You may use the SelectDB method in the Customer class or any other method you have
-        customer.selectDB(username); // assuming you want to load details for a specific user
+        try (Connection connection = DriverManager.getConnection(url)) {
+            // Use PreparedStatement to prevent SQL injection
+            String sql = "SELECT * FROM Customer WHERE Username = ?";
+            try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                statement.setString(1, Username);
 
-        // Set the retrieved information to the corresponding text fields
-        ProfileFirstNameBox.setText(customer.getFirstName());
-        ProfileLastNameBox.setText(customer.getLastName());
-        ProfileAddressBox.setText(customer.getAddress());
-        ProfileStateBox.setText(customer.getState());
-        ProfileZipCodeBox.setText(customer.getZipCode());
-        ProfileEmailBox.setText(customer.getEmail());
-        ProfileSSNBox.setText(customer.getSSN());
-        ProfileSQuestionBox.setText(customer.getSecurityQuestion());
-        ProfileSAnsBox.setText(customer.getSecurityAnswer());
-        ProfileUsernameBox.setText(username); // Set the username directly from the parameter
-        ProfilePasswordBox.setText(customer.getPassword());
-    }
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    // Check if the result set has data
+                    if (resultSet.next()) {
+                        // Retrieve customer information from the result set
+                        ProfileFirstNameBox.setText(resultSet.getString("FirstName"));
+                        ProfileLastNameBox.setText(resultSet.getString("LastName"));
+                        ProfileAddressBox.setText(resultSet.getString("Address"));
+                        ProfileStateBox.setText(resultSet.getString("State"));
+                        ProfileZipCodeBox.setText(resultSet.getString("ZipCode"));
+                        ProfileSSNBox.setText(resultSet.getString("SSN"));
+                        ProfileEmailBox.setText(resultSet.getString("Email"));
+                        ProfilePasswordBox.setText(resultSet.getString("Password"));
+                        ProfileSQuestionBox.setText(resultSet.getString("SecurityQuestion"));
+                        ProfileSAnsBox.setText(resultSet.getString("SecurityAnswer"));
+
+                    }
+                }
+                    }
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
 
 
     @FXML

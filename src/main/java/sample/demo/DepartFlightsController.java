@@ -198,8 +198,8 @@ public class DepartFlightsController implements Initializable {
 
             }
             else{
-                System.out.println("going to the Mytrip...");
-                Starting.window.setScene(Starting.myTripScene);
+                System.out.println("going to the trip summary page...");
+                Starting.window.setScene(Starting.tripsummaryScene);
             }
 
             // Optionally, you can show a success popup or perform additional logic
