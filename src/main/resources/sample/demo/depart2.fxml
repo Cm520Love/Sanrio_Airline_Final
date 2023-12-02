@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -17,7 +26,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="809.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.demo.DepartFlightsController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="809.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.demo.DepartFlightsController">
     <children>
         <ImageView fx:id="ReturnTicketImageView" fitHeight="816.0" fitWidth="580.0" layoutX="-7.0" pickOnBounds="true">
             <image>
@@ -30,12 +39,12 @@
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.9098039269447327" green="0.7215686440467834" blue="0.9215686321258545" />
+                        <Color blue="0.9215686321258545" green="0.7215686440467834" red="0.9098039269447327" />
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.5215686559677124" green="0.8980392217636108" blue="1.0" opacity="0.9100000262260437" />
+                        <Color blue="1.0" green="0.8980392217636108" opacity="0.9100000262260437" red="0.5215686559677124" />
                      </color>
                   </Stop>
                </stops>
@@ -48,12 +57,12 @@
                     <stops>
                         <Stop>
                             <color>
-                                <Color red="0.9196393489837646" green="0.911685049533844" blue="0.9912280440330505" opacity="0.9100000262260437" />
+                                <Color blue="0.9912280440330505" green="0.911685049533844" opacity="0.9100000262260437" red="0.9196393489837646" />
                             </color>
                         </Stop>
                         <Stop offset="1.0">
                             <color>
-                                <Color red="0.8742690086364746" green="0.6549707651138306" blue="0.9473684430122375" opacity="0.9100000262260437" />
+                                <Color blue="0.9473684430122375" green="0.6549707651138306" opacity="0.9100000262260437" red="0.8742690086364746" />
                             </color>
                         </Stop>
                     </stops>
@@ -110,7 +119,7 @@
                 </TextField>
             </children>
         </Pane>
-        <Label alignment="CENTER" layoutX="130.0" layoutY="27.0" prefHeight="37.0" prefWidth="299.0" text="Sanrio Depart Flight Tickets">
+        <Label fx:id="bookFlightTitle" alignment="CENTER" layoutX="130.0" layoutY="27.0" prefHeight="37.0" prefWidth="299.0" text="Sanrio Depart Flight Tickets">
             <font>
                 <Font name="System Bold Italic" size="20.0" />
             </font>

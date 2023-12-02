@@ -80,7 +80,7 @@ public class BookFlightController implements Initializable{
         departDatePicker.valueProperty().addListener(
                 (properties, oldValue, newValue) -> {
                     selectedDepartDate[0] = newValue;
-
+                    returnDatePicker.getEditor().clear();
                 });
 
         departDatePicker.setDayCellFactory(args -> new DateCell() {

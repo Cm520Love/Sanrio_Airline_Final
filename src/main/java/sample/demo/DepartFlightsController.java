@@ -52,7 +52,11 @@ public class DepartFlightsController implements Initializable {
     private Button ticket3AddButton;
     @FXML
     private Button ticket4AddButton;
-
+    @FXML
+    private Label  bookFlightTitle;
+    ArrayList<UserInformation> flightInformation = flightInformationVO.getCurrentFlightInfo();
+    String[] departFlightInfo = new String[3];
+    boolean departAdded;
 
     static private HashMap<Integer, ArrayList<String>> allFlightTickets;
     //public FlightTicketsController(HashMap<String, ArrayList<String>> allFlightTickets) {
@@ -61,23 +65,44 @@ public class DepartFlightsController implements Initializable {
 
     @Override
     public void initialize(java.net.URL url, java.util.ResourceBundle resourceBundle) {
-        ArrayList<UserInformation> flightInformation = flightInformationVO.getCurrentFlightInfo();
         String fromCity = flightInformation.get(4).getInfo();
         fromCity = fromCity.substring(fromCity.length() - 3);
         String toCity = flightInformation.get(6).getInfo();
         toCity = toCity.substring(toCity.length() - 3);
-
         String departureDate = flightInformation.get(1).getInfo();
-        //String returnDate = flightInformation.get(2).getInfo();
 
-        String[] flightInfo = {fromCity, toCity, departureDate};
-        allFlightTickets = bookFlightQueries.retrieveFlights(flightInfo);
+        departFlightInfo[0] = fromCity;
+        departFlightInfo[1] = toCity;
+        departFlightInfo[2] = departureDate;
 
-        departureDateTextField.setText(departureDate);
-        departureAirportTextField.setText(fromCity);
-        arrivalAirportTextField.setText(toCity);
+        initializeDepart();
+
+
+    }
+
+    private void initializeDepart() {
+        allFlightTickets = bookFlightQueries.retrieveFlights(departFlightInfo);
+        departAdded = false;
+        bookFlightTitle.setText("Sanrio Depart Flight Tickets");
+        departureDateTextField.setText(departFlightInfo[2]);
+        departureAirportTextField.setText(departFlightInfo[0]);
+        arrivalAirportTextField.setText(departFlightInfo[1]);
         tripTypeTextField.setText(flightInformation.get(0).getInfo());
+        displayFlightInformation();
+    }
 
+    private void initializeReturn() {
+        String returnDate = flightInformation.get(1).getInfo();
+        String temp = departFlightInfo[0];
+        departFlightInfo[0] = departFlightInfo[1];
+        departFlightInfo[1] = temp;
+        departFlightInfo[2] = returnDate;
+
+        allFlightTickets = bookFlightQueries.retrieveFlights(departFlightInfo);
+        bookFlightTitle.setText("Sanrio Return Flight Tickets");
+        departureDateTextField.setText(departFlightInfo[2]);
+        departureAirportTextField.setText(departFlightInfo[0]);
+        arrivalAirportTextField.setText(departFlightInfo[1]);
         displayFlightInformation();
     }
 
@@ -161,6 +186,7 @@ public class DepartFlightsController implements Initializable {
 
 
     private void addInformationToDatabase(String Username, String DepartureDate, String DepartureTime, String ArrivalTime, String FlightID) {
+
         try {
             // Check if the user has already booked this flight
             if (hasUserBookedFlight(Username, FlightID)) {
@@ -192,14 +218,14 @@ public class DepartFlightsController implements Initializable {
             ps.execute();
             incrementPassengers(FlightID);
 
-            if(flightInformationVO.getCurrentFlightInfo().get(0).getInfo() == "Round") {
-                System.out.println("going to the return flight page...");
-                Starting.window.setScene(Starting.returnFlightScene);
-
+            if (flightInformationVO.getCurrentFlightInfo().get(0).getInfo() == "Round" && !departAdded) {
+                System.out.println("going to book the return flight...");
+                initializeReturn();
+                departAdded = true;
             }
-            else{
+            else {
                 System.out.println("going to the Mytrip...");
-                Starting.window.setScene(Starting.myTripScene);
+
             }
 
             // Optionally, you can show a success popup or perform additional logic
