@@ -27,6 +27,7 @@ public class MainMenuAccessController {
     @FXML
     void onMyTripsHyperlinkClicked() {
         System.out.println("going to the trip summary page...");
+
         Starting.window.setScene(Starting.tripsummaryScene);
     }
 

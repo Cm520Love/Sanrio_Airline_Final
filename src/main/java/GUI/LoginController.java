@@ -43,6 +43,8 @@ public class LoginController {
                 System.out.println("login successful");
                 Starting.setCurrentUser(username);
                 Starting.window.setScene(Starting.mainMenuAccessScene);
+                GUI.Starting.tripSummaryPage = new FXMLLoader(getClass().getResource("TripSummary.fxml"));
+                Starting.tripsummaryScene = new Scene(GUI.Starting.tripSummaryPage.load());
                 Starting.profilePage = new FXMLLoader(getClass().getResource("Profile.fxml"));
                 Starting.profileScene = new Scene(Starting.profilePage.load());
             }
