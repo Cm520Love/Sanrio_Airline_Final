@@ -95,4 +95,22 @@ public class CurrentUser {
         return String.format("Username: %s%n Departure Airport: %s%n Arrival Airport: %s%n Departure Date: %s%nDeparture Time: %s%nArrival Time: %s",
                 username, departureAirport, arrivalAirport, departureDate, departureTime, arrivalTime);
     }
+
+    public static String[] getAllUserInformation(String username) {
+        String[] userInformation = new String[11];
+        try {
+            PreparedStatement ps = Access.conn.prepareStatement("SELECT * FROM Customer WHERE Username = ?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+
+            rs.next();
+
+            for (int index = 1; index <= 11; index++) {
+                userInformation[index - 1] = rs.getString(index);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userInformation;
+    }
 }

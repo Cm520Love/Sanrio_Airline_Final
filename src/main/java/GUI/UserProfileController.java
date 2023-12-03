@@ -50,43 +50,21 @@ public class UserProfileController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String Username = Starting.getCurrentUser();
-        GettingAllCustomerInfo();
+        String[] userInformation = SQL.CurrentUser.getAllUserInformation(Username);
+
+        ProfileFirstNameBox.setText(userInformation[0]);
+        ProfileLastNameBox.setText(userInformation[1]);
+        ProfileAddressBox.setText(userInformation[2]);
+        ProfileStateBox.setText(userInformation[3]);
+        ProfileZipCodeBox.setText(userInformation[4]);
+        ProfileUsernameBox.setText(Username);
+        ProfilePasswordBox.setText(userInformation[6]);
+        ProfileSSNBox.setText(userInformation[7]);
+        ProfileEmailBox.setText(userInformation[8]);
+        ProfileSQuestionBox.setText(userInformation[9]);
+        ProfileSAnsBox.setText(userInformation[10]);
 
     }
-
-    private void GettingAllCustomerInfo() {
-        String Username = Starting.getCurrentUser();
-        ProfileUsernameBox.setText(Username);
-        String url = "jdbc:sqlserver://test-sunnysqlserver.database.windows.net:1433;database=Sanrio_Airlines;user=stinkysnoopy@test-sunnysqlserver;password=AdminPass!!!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-
-        try (Connection connection = DriverManager.getConnection(url)) {
-            // Use PreparedStatement to prevent SQL injection
-            String sql = "SELECT * FROM Customer WHERE Username = ?";
-            try (PreparedStatement statement = connection.prepareStatement(sql)) {
-                statement.setString(1, Username);
-
-                try (ResultSet resultSet = statement.executeQuery()) {
-                    // Check if the result set has data
-                    if (resultSet.next()) {
-                        // Retrieve customer information from the result set
-                        ProfileFirstNameBox.setText(resultSet.getString("FirstName"));
-                        ProfileLastNameBox.setText(resultSet.getString("LastName"));
-                        ProfileAddressBox.setText(resultSet.getString("Address"));
-                        ProfileStateBox.setText(resultSet.getString("State"));
-                        ProfileZipCodeBox.setText(resultSet.getString("ZipCode"));
-                        ProfileSSNBox.setText(resultSet.getString("SSN"));
-                        ProfileEmailBox.setText(resultSet.getString("Email"));
-                        ProfilePasswordBox.setText(resultSet.getString("Password"));
-                        ProfileSQuestionBox.setText(resultSet.getString("SecurityQuestion"));
-                        ProfileSAnsBox.setText(resultSet.getString("SecurityAnswer"));
-
-                    }
-                }
-                    }
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
 
 
     public void onSanioAirlineClicked(javafx.event.ActionEvent actionEvent) {
