@@ -165,6 +165,23 @@ public class SearchFlight {
             return false;
         }
     }
+
+
+
+    private static void incrementPassengers(String FlightID) {
+        try {
+            PreparedStatement ps = Access.conn.prepareStatement("SELECT Passengers FROM Flight WHERE FlightID = ?");
+            PreparedStatement updatedStatement = Access.conn.prepareStatement("UPDATE Flight SET Passengers = ? WHERE FlightID = ?");
+            ps.setInt(1, Integer.parseInt(FlightID));
+            ResultSet rs = ps.executeQuery();  // Returns true if a record is found
+            rs.next();
+            updatedStatement.setInt(1, rs.getInt(1) + 1); //add the passenger for each booked
+            updatedStatement.setInt(2, Integer.parseInt(FlightID)); // this is for specific flightID so it won't add passengers to all flightID
+            updatedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     private static boolean ConflictedTimeFlights(String Username, String DepartureDate, String DepartureTime, String ArrivalTime) {
         try {
             PreparedStatement ps = Access.conn.prepareStatement("SELECT COUNT(*) AS Num FROM BookedFlights WHERE Username = ? AND DepartureDate = ? AND DepartureTime = ? AND ArrivalTime = ?");
@@ -188,7 +205,6 @@ public class SearchFlight {
 
         }
     }
-
     private static boolean hasUserBookedFlight(String username, String flightID) {
         try {
             PreparedStatement ps = Access.conn.prepareStatement("SELECT * FROM BookedFlights WHERE Username = ? AND FlightID = ?");
@@ -221,20 +237,7 @@ public class SearchFlight {
         }
         return false;
     }
-    private static void incrementPassengers(String FlightID) {
-        try {
-            PreparedStatement ps = Access.conn.prepareStatement("SELECT Passengers FROM Flight WHERE FlightID = ?");
-            PreparedStatement updatedStatement = Access.conn.prepareStatement("UPDATE Flight SET Passengers = ? WHERE FlightID = ?");
-            ps.setInt(1, Integer.parseInt(FlightID));
-            ResultSet rs = ps.executeQuery();  // Returns true if a record is found
-            rs.next();
-            updatedStatement.setInt(1, rs.getInt(1) + 1); //add the passenger for each booked
-            updatedStatement.setInt(2, Integer.parseInt(FlightID)); // this is for specific flightID so it won't add passengers to all flightID
-            updatedStatement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     public static void decrementPassengers(String FlightID){
         try{
