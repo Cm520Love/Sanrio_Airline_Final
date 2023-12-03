@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="685.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UserProfileController">
+    <children>
+        <Rectangle arcHeight="25.0" arcWidth="25.0" height="577.0" layoutX="60.0" layoutY="62.0" stroke="BLACK" strokeType="INSIDE" width="525.0">
+            <fill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color blue="1.0" green="0.8395061492919922" red="0.9946501851081848" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color blue="1.0" green="0.9108024835586548" red="0.6851851940155029" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <ImageView fx:id="ProfileImageView" fitHeight="685.0" fitWidth="633.0" opacity="0.47" pickOnBounds="true">
+            <image>
+                <Image url="@../images/HD-wallpaper-baby-cinnamoroll-cute-sanrio-bunny-cinnamoroll-kawaii.jpg" />
+            </image>
+        </ImageView>
+        <Label layoutX="211.0" layoutY="27.0" text="Sanrio User Profile" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="80.0" layoutY="80.0" text="First Name : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="331.0" layoutY="80.0" text="Last Name : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="83.0" layoutY="139.0" text="Address : " textAlignment="CENTER">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="308.0" layoutY="139.0" text="State : " textAlignment="CENTER">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="413.0" layoutY="139.0" text="Zip Code : " textAlignment="CENTER">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="300.0" layoutY="416.0" text="Username : " textAlignment="CENTER">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="302.0" layoutY="507.0" text="Password : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="80.0" layoutY="202.0" text="Email Address : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="80.0" layoutY="248.0" text="Social Security No : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="82.0" layoutY="295.0" text="Security Question : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="83.0" layoutY="344.0" text="Security Answer : ">
+            <font>
+                <Font name="System Bold Italic" size="14.0" />
+            </font>
+        </Label>
+        <TextField fx:id="ProfileFirstNameBox" editable="false" layoutX="164.0" layoutY="77.0" />
+        <TextField fx:id="ProfileLastNameBox" editable="false" layoutX="420.0" layoutY="77.0">
+            <font>
+                <Font name="System Italic" size="12.0" />
+            </font></TextField>
+        <TextField fx:id="ProfileAddressBox" editable="false" layoutX="147.0" layoutY="137.0" />
+        <TextField fx:id="ProfileStateBox" editable="false" layoutX="353.0" layoutY="137.0" prefHeight="25.0" prefWidth="37.0" />
+        <TextField fx:id="ProfileZipCodeBox" editable="false" layoutX="482.0" layoutY="136.0" prefHeight="25.0" prefWidth="97.0" />
+        <TextField fx:id="ProfileEmailBox" editable="false" layoutX="200.0" layoutY="200.0" prefHeight="25.0" prefWidth="315.0" />
+        <TextField fx:id="ProfileSSNBox" editable="false" layoutX="234.0" layoutY="246.0" prefHeight="25.0" prefWidth="218.0" />
+        <TextField fx:id="ProfileSAnsBox" editable="false" layoutX="234.0" layoutY="341.0" prefHeight="25.0" prefWidth="218.0" />
+        <TextField fx:id="ProfileUsernameBox" editable="false" layoutX="256.0" layoutY="450.0" prefHeight="25.0" prefWidth="149.0" />
+        <TextField fx:id="ProfilePasswordBox" editable="false" layoutX="256.0" layoutY="539.0" />
+        <Hyperlink fx:id="SanrioAirline" layoutX="21.0" layoutY="21.0" onAction="#onSanioAirlineClicked" text="Sanrio Airline" />
+        <TextField fx:id="ProfileSQuestionBox" editable="false" layoutX="234.0" layoutY="293.0" prefHeight="25.0" prefWidth="218.0" />
+    </children>
+</AnchorPane>
