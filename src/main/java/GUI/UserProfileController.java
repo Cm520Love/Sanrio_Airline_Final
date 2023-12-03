@@ -89,9 +89,6 @@ public class UserProfileController implements Initializable {
             }
 
 
-
-
-
     public void onSanioAirlineClicked(javafx.event.ActionEvent actionEvent) {
         System.out.println("Going to the main menu.....");
         Starting.window.setScene(Starting.mainMenuAccessScene);
