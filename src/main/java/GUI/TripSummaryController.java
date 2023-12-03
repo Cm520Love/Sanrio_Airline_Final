@@ -1,5 +1,6 @@
 package GUI;
 
+import SQL.SearchFlight;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -85,6 +86,7 @@ public class TripSummaryController implements Initializable {
             // Call the method to delete the flight from the database
             if (deleteFlight(flightID)) {
                 System.out.println("Flight deleted successfully");
+                SearchFlight.decrementPassengers(flightID);
             } else {
                 System.out.println("Flight deletion failed");
             }
@@ -111,7 +113,6 @@ public class TripSummaryController implements Initializable {
         }
 
     }
-
 
     @FXML
     void onGetFlightInformationButtonClicked(ActionEvent event) {

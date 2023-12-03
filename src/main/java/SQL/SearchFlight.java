@@ -236,4 +236,19 @@ public class SearchFlight {
         }
     }
 
+    public static void decrementPassengers(String FlightID){
+        try{
+            PreparedStatement ps = Access.conn.prepareStatement("SELECT Passengers FROM Flight WHERE FlightID = ?");
+            PreparedStatement updatedStatement = Access.conn.prepareStatement("UPDATE Flight SET Passengers = ? WHERE FligHtID =?");
+            ps.setInt(1, Integer.parseInt(FlightID));//ParseInt makes whatever the string you convert into numbers or integer to able to do calculations
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            updatedStatement.setInt(1, rs.getInt(1)-1);
+            updatedStatement.setInt(2, Integer.parseInt(FlightID));
+            updatedStatement.execute();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 }
