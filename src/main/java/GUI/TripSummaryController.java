@@ -51,8 +51,7 @@ public class TripSummaryController implements Initializable {
             flightListView.getItems().remove(selectedFlight);
 
             // Extract the flight details from the selected item
-            //String[] flightDetails = selectedFlight.split("\\s+"); // Assuming whitespace separates details
-            String flightID = selectedFlight; // Adjust index based on your flight details format
+            String flightID = selectedFlight;
 
             // Call the method to delete the flight from the database
             if (SQL.CurrentUser.deleteUserFlight(flightID)) {

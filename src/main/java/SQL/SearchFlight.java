@@ -122,7 +122,7 @@ public class SearchFlight {
 
     }
 
-    public static boolean addInformationToDatabase(String Username, String DepartureDate, String DepartureTime, String ArrivalTime, String FlightID) {
+    public static boolean addFlight(String Username, String DepartureDate, String DepartureTime, String ArrivalTime, String FlightID) {
         try {
             // Check if the user has already booked this flight
             if (hasUserBookedFlight(Username, FlightID)) {

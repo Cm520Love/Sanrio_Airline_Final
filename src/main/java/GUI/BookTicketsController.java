@@ -124,7 +124,7 @@ public class BookTicketsController implements Initializable {
 
     @FXML
     void onDepartTicket1AddButtonClicked() {
-        if (SearchFlight.addInformationToDatabase(
+        if (SearchFlight.addFlight(
                 Starting.getCurrentUser(),
                 departureDateTextField.getText(),
                 ticket1DepartureTimeTextField.getText(),
@@ -141,7 +141,7 @@ public class BookTicketsController implements Initializable {
     }
     @FXML
     void onDepartTicket2AddButtonClicked() {
-        if (SearchFlight.addInformationToDatabase(
+        if (SearchFlight.addFlight(
                 Starting.getCurrentUser(),
                 departureDateTextField.getText(),
                 ticket2DepartureTimeTextField.getText(),
@@ -158,7 +158,7 @@ public class BookTicketsController implements Initializable {
     @FXML
     void onDepartTicket3AddButtonClicked() {
 
-        if (SearchFlight.addInformationToDatabase(
+        if (SearchFlight.addFlight(
                 Starting.getCurrentUser(),
                 departureDateTextField.getText(),
                 ticket3DepartureTimeTextField.getText(),
@@ -175,7 +175,7 @@ public class BookTicketsController implements Initializable {
     }
     @FXML
     void onDepartTicket4AddButtonClicked() {
-        if (SearchFlight.addInformationToDatabase(
+        if (SearchFlight.addFlight(
                 Starting.getCurrentUser(),
                 departureDateTextField.getText(),
                 ticket4DepartureTimeTextField.getText(),

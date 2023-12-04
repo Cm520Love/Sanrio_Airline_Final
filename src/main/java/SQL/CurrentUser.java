@@ -3,7 +3,6 @@ package SQL;
 
 import java.sql.*;
 import java.util.ArrayList;
-import GUI.Starting.*;
 
 
 public class CurrentUser {
@@ -113,4 +112,67 @@ public class CurrentUser {
         }
         return userInformation;
     }
+
+    public static boolean accountExists(String username, String firstName, String lastName) {
+        boolean exists = false;
+        try {
+            PreparedStatement ps = Access.conn.prepareStatement("SELECT SecurityQuestion, SecurityAnswer, Password FROM Customer WHERE Username = ? AND FirstName = ? AND LastName = ?");
+            ps.setString(1, username);
+            ps.setString(2, firstName);
+            ps.setString(3, lastName);
+            ResultSet rs = ps.executeQuery();
+            exists = rs.next();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return exists;
+
+    }
+
+    public static String getSecurityQuestion(String username) {
+        String question = "";
+        try {
+            PreparedStatement ps = Access.conn.prepareStatement("SELECT SecurityQuestion FROM Customer WHERE Username = ? ");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            question = rs.getString(1);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return question;
+    }
+
+    public static String getSecurityAnswer(String username) {
+        String answer = "";
+        try {
+            PreparedStatement ps = Access.conn.prepareStatement("SELECT SecurityAnswer FROM Customer WHERE Username = ?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            answer = rs.getString(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return answer;
+    }
+
+    public static String getUserPassword(String username) {
+        String password = "";
+        try {
+            PreparedStatement ps = Access.conn.prepareStatement("SELECT Password FROM Customer WHERE Username = ?");
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            password = rs.getString(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return password;
+    }
 }
+
