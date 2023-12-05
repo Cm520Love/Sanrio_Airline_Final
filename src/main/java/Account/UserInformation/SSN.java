@@ -1,7 +1,7 @@
 package Account.UserInformation;
 import SQL.*;
-
-public class SSN extends Account.Information implements Interfaces.NotInsideDatabase {
+import Interfaces.*;
+public class SSN extends Account.Information implements NotInsideDatabase {
 
     public SSN(String info) {
         setInfo(info);
