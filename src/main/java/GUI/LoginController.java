@@ -19,6 +19,8 @@ public class LoginController {
     @FXML
     private Label forgotPasswordLabel;
     @FXML
+    private Label loginError;
+    @FXML
     private ImageView icon;
     @FXML
     private TextField usernameEntry;
@@ -35,18 +37,21 @@ public class LoginController {
 
     @FXML
     public void onLoginButtonClicked() {
+        // retrieving the information the user entered in username and password
         String username = usernameEntry.getText();
         String password = passwordEntry.getText();
-
+        loginError.setVisible(false);
         try {
+            // if login was successful
             if (CurrentUser.login(username, password)) {
                 System.out.println("login successful");
+                // set the current user
                 Starting.setCurrentUser(username);
-                Starting.window.setScene(Starting.mainMenuAccessScene);
-                GUI.Starting.tripSummaryPage = new FXMLLoader(getClass().getResource("TripSummary.fxml"));
-                Starting.tripsummaryScene = new Scene(GUI.Starting.tripSummaryPage.load());
-                Starting.profilePage = new FXMLLoader(getClass().getResource("Profile.fxml"));
-                Starting.profileScene = new Scene(Starting.profilePage.load());
+                // switch scenes to the main menu where they can book flights
+                Starting.switchScenes("MainMenuAccess");
+            } else {
+                // if login was not successful, display the login error msg
+                loginError.setVisible(!loginError.isVisible());
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -57,20 +62,22 @@ public class LoginController {
     @FXML
     public void onMainMenuHyperlinkClicked() {
         System.out.println("going to main menu...");
-        Starting.window.setScene(Starting.mainMenuNoAccessScene);
+        Starting.switchScenes("MainMenuNoAccess");
 
     }
 
     @FXML
     public void onSignUpHyperlinkClicked() {
         System.out.println("going to sign up page...");
-        Starting.window.setScene(Starting.signUpScene);
+        Starting.switchScenes("SignUp");
+
     }
 
     @FXML
     public void onForgotPasswordHyperlinkClicked() {
         System.out.println("you forgot your password? that's crazy");
-        Starting.window.setScene(Starting.forgotPasswordScene);
+        Starting.switchScenes("ForgotPassword");
+
 
     }
 

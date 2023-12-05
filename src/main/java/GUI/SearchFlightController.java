@@ -46,13 +46,21 @@ public class SearchFlightController implements Initializable{
 
     }
     private void setStateListener() {
+        // adding all the available states a user can select from
         fromStateComboBox.getItems().addAll(State.getStateAbbreviations());
+
         fromStateComboBox.getSelectionModel().selectedItemProperty().addListener(
                 (properties, oldValue, newValue) -> {
+                    // when user selects a new state, clear the departure cities and arrival states
                     fromCityComboBox.getItems().clear();
                     toStateComboBox.getItems().clear();
+
+                    // add all the available states to the arrival states, BUT remove the state that the user
+                    // selected for their departure state
                     toStateComboBox.getItems().addAll(State.getStateAbbreviations());
                     toStateComboBox.getItems().remove(newValue);
+
+                    // grab all the associated airports + cities and place it in the departure city combobox
                     final ArrayList<String[]> cityAirports = SQL.SearchFlight.getAirports(newValue);
                     for (String[] city: cityAirports) {
                         fromCityComboBox.getItems().addAll(city);
@@ -61,7 +69,10 @@ public class SearchFlightController implements Initializable{
 
         toStateComboBox.getSelectionModel().selectedItemProperty().addListener(
                 (properties, oldValue, newValue) -> {
+                    // clear the arrival cities every time the user changes the arrival state
                     toCityComboBox.getItems().clear();
+
+                    // add all the arrival cities
                     final ArrayList<String[]> cityAirports = SQL.SearchFlight.getAirports(newValue);
                     for (String[] city: cityAirports) {
                         toCityComboBox.getItems().addAll(city);
@@ -72,6 +83,8 @@ public class SearchFlightController implements Initializable{
     }
 
     private void setTripTypeListener() {
+        // method that displays or removes the option for the user to select a return date
+        // depends on whether the user selected round or one-way trip
         tripTypeChoiceBox.getSelectionModel().selectedItemProperty().addListener(
                 (properties, oldValue, newValue) -> {
                     switch (newValue) {
@@ -87,16 +100,21 @@ public class SearchFlightController implements Initializable{
     }
 
     private void setDatePickerListener() {
-        final java.time.LocalDate[] selectedDepartDate = {departDatePicker.getValue()};
+        // get the departure date and store it in a list
+        // allows you to change the contents despite the variable being "final"
+        final LocalDate[] selectedDepartDate = {departDatePicker.getValue()};
         departDatePicker.valueProperty().addListener(
                 (properties, oldValue, newValue) -> {
+                    // place the selected date in the list
                     selectedDepartDate[0] = newValue;
+                    // every time the user selects a new departure date, clear the date in the return date
                     returnDatePicker.getEditor().clear();
                 });
 
         departDatePicker.setDayCellFactory(args -> new DateCell() {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
+                // method will disable the user from selecting departure dates before today's date or whichever date they pick
                 super.updateItem(date, empty);
                 setDisable(empty || date.compareTo(LocalDate.now()) < 0);
             }
@@ -105,6 +123,7 @@ public class SearchFlightController implements Initializable{
         returnDatePicker.setDayCellFactory(args -> new DateCell() {
             @Override
             public void updateItem(LocalDate date, boolean empty) {
+                // method will disable the user from selecting dates prior to the selected departure date
                 super.updateItem(date, empty);
                 setDisable(empty || date.compareTo(selectedDepartDate[0]) < 0);
             }
@@ -114,19 +133,20 @@ public class SearchFlightController implements Initializable{
     @FXML
     void onMyTripsHyperlinkClicked() {
         System.out.println("Heading to Your Trips");
-        Starting.window.setScene(GUI.Starting.tripsummaryScene);
+        Starting.switchScenes("TripSummary");
+
     }
     @FXML
     void onLogoutHyperlinkClicked() {
         System.out.println("logging out and heading to main menu");
-        Starting.window.setScene(Starting.mainMenuNoAccessScene);
+        Starting.switchScenes("MainMenuNoAccess");
         Starting.setCurrentUser("");
     }
 
     @FXML
     private void onMainMenuHyperlinkClicked() {
         System.out.println("heading back to the main menu");
-        Starting.window.setScene(Starting.mainMenuAccessScene);
+        Starting.switchScenes("MainMenuAccess");
     }
 
 
@@ -135,12 +155,12 @@ public class SearchFlightController implements Initializable{
         try {
             clearEntryErrors();
             flightInformation = testFlightInformation();
+            // once all the required entry fields are filled, continue with searching a flight for the user
             if (canContinueSearchFlights(flightInformation)) {
                 System.out.println("Searching for flights with your criteria...");
                 VOFlightInformation.setCurrentFlightInformation(flightInformation);
-                Starting.bookTicketsPage = new FXMLLoader(getClass().getResource("BookTickets.fxml"));
-                Starting.bookTicketsScene = new Scene(Starting.bookTicketsPage.load());
-                Starting.window.setScene(Starting.bookTicketsScene);
+                Starting.switchScenes("BookTickets");
+
             }
         }
         catch (Exception ex) {
@@ -157,6 +177,7 @@ public class SearchFlightController implements Initializable{
     }
 
     private ArrayList<Account.Information> testFlightInformation() {
+        // creating a flight information value object
         VOFlightInformation newFlight = new VOFlightInformation();
 
         newFlight.tripType = new TripType(tripTypeChoiceBox.getValue());
@@ -166,17 +187,23 @@ public class SearchFlightController implements Initializable{
         newFlight.fromCity = new FromCity(fromCityComboBox.getValue());
         newFlight.toState = new ToState(toStateComboBox.getValue());
         newFlight.toCity = new ToCity(toCityComboBox.getValue());
+
+        // return the arraylist of flight criteria information
         return newFlight.getFlightInformation();
     }
     private boolean canContinueSearchFlights(ArrayList<Account.Information> flightInformation) {
         boolean continueSearchFlights = true;
 
+        // iterate through the flight criteria information
         for (Account.Information info: flightInformation) {
+            // if any of the information is not valid for any reason
+            // the user cannot continue to book flights
             if (info.isValid() ) {
                 continue;
             }
             continueSearchFlights = false;
 
+            // display what the user needs to correct
             switch (info.getClass().getSimpleName()) {
                 case "ReturnDate":
                     returnError.setText(info.getErrorMsg());

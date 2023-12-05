@@ -8,13 +8,14 @@ public class Access {
 
     static Connection conn;
 
+    // method to get access into the database
     public static void getAccess() {
         try {
             conn = java.sql.DriverManager.getConnection(url);
             System.out.println("Database connected.");
         }
         catch (Exception ex) {
-            System.out.println("Error occurred during connectiong to the database.");
+            System.out.println("Error occurred during connection to the database.");
         }
     }
 

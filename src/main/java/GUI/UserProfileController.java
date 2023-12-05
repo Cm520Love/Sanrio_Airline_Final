@@ -1,6 +1,5 @@
 package GUI;
 
-import SQL.Customers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -9,11 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
-import java.sql.*;
 import java.util.ResourceBundle;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 public class UserProfileController implements Initializable {
     @FXML
     private TextField ProfileAddressBox;
@@ -44,9 +40,6 @@ public class UserProfileController implements Initializable {
     @FXML
     private Hyperlink SanrioAirline;
 
-    // Instantiate a Customer object
-    private Customers customer = new Customers();
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String Username = Starting.getCurrentUser();
@@ -69,7 +62,7 @@ public class UserProfileController implements Initializable {
 
     public void onSanioAirlineClicked(javafx.event.ActionEvent actionEvent) {
         System.out.println("Going to the main menu.....");
-        Starting.window.setScene(Starting.mainMenuAccessScene);
+        Starting.switchScenes("MainMenuAccess");
     }
 }
 

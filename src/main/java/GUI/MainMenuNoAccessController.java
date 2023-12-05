@@ -14,18 +14,13 @@ public class MainMenuNoAccessController {
     @FXML
     public void onLoginHyperlinkClicked() {
         System.out.println("going to the login page...");
-        Starting.window.setScene(Starting.loginScene);
+        Starting.switchScenes("Login");
     }
 
     @FXML
     public void onSignUpHyperlinkClicked() {
         System.out.println("going to the sign up page...");
+        Starting.switchScenes("SignUp");
+    }
 
-        Starting.window.setScene(Starting.signUpScene);
-    }
-    @FXML
-    public void onForgotPasswordHyperlinkClicked() {
-        System.out.println("going to the password recovery page...");
-        Starting.window.setScene(Starting.forgotPasswordScene);
-    }
 }

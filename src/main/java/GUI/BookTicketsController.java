@@ -50,7 +50,7 @@ public class BookTicketsController implements Initializable {
 
     private static ArrayList<Account.Information> flightInformation;
 
-    boolean returnAdded;
+    boolean departAdded;
 
     @Override
     public void initialize(java.net.URL url, java.util.ResourceBundle resourceBundle) {
@@ -75,26 +75,33 @@ public class BookTicketsController implements Initializable {
     }
 
     void getDepartureTickets() {
-        allFlightTickets = SQL.SearchFlight.retrieveFlights(flightInfo);
+        // getting all the flights and storing it in a hashmap
+        // key: flightID, value: flight information
+        allFlightTickets = SQL.SearchFlight.checkFlights(flightInfo);
 
+        // setting the information in their respective text fields
         departureAirportTextField.setText(flightInfo[0]);
         arrivalAirportTextField.setText(flightInfo[1]);
         departureDateTextField.setText(flightInfo[2]);
         tripTypeTextField.setText(flightInformation.get(0).getInfo());
 
-        returnAdded = false;
+        departAdded = false;
+
+        // display the different flight options to the user
         displayFlightInformation();
     }
 
     void getReturnTickets() {
+        //swap the from and to when booking flight tickets
         String temp = flightInfo[0];
         flightInfo[0] = flightInfo[1];
         flightInfo[1] = temp;
         flightInfo[2] = flightInformation.get(2).getInfo();
-        allFlightTickets = SQL.SearchFlight.retrieveFlights(flightInfo);
+        allFlightTickets = SQL.SearchFlight.checkFlights(flightInfo);
 
-
+        //set the title to return flights page
         bookFlightTitle.setText("Sanrio Return Flight Tickets");
+        //flight information for return tickets
         departureAirportTextField.setText(flightInfo[0]);
         arrivalAirportTextField.setText(flightInfo[1]);
         departureDateTextField.setText(flightInfo[2]);
@@ -103,40 +110,48 @@ public class BookTicketsController implements Initializable {
 
     void displayFlightInformation() {
         int i = 0;
+        // storing text fields into a list
         TextField[] flightIDBoxes = {departFlightNo1Box, departFlightNo2Box, departFlightNo3Box, departFlightNo4Box};
         TextField[] departureTimeBoxes = {ticket1DepartureTimeTextField, ticket2DepartureTimeTextField, ticket3DepartureTimeTextField, ticket4DepartureTimeTextField};
         TextField[] arrivalTimeBoxes = {ticket1ArrivalTimeTextField, ticket2ArrivalTimeTextField, ticket3ArrivalTimeTextField, ticket4ArrivalTimeTextField};
+
+        // iterating through the hashmap
         for (Integer key : allFlightTickets.keySet()) {
+            // getting individual flight details and storing it in an arraylist
             ArrayList<String> details = allFlightTickets.get(key);
+
+            // setting the flightID number
             flightIDBoxes[i].setText(key+"");
+
+            // grabbing arrival/departure time from the individual flight and displaying it in the text field
             departureTimeBoxes[i].setText(details.get(3));
             arrivalTimeBoxes[i].setText(details.get(4));
             i++;
-            System.out.println(key + " " + allFlightTickets.get(key));
+
         }
     }
 
     @FXML
     void onMainMenuLinkClicked() {
         System.out.println("going back to main menu");
-        Starting.window.setScene(Starting.mainMenuAccessScene);
+        Starting.switchScenes("MainMenuAccess");
     }
 
     @FXML
     void onDepartTicket1AddButtonClicked() {
+        //add the booked flights from the boxes to the database
         if (SearchFlight.addFlight(
-                Starting.getCurrentUser(),
-                departureDateTextField.getText(),
+                Starting.getCurrentUser(), //get the current username when the customer log in
+                departureDateTextField.getText(), //get text from the boxes
                 ticket1DepartureTimeTextField.getText(),
                 ticket1ArrivalTimeTextField.getText(),
                 departFlightNo1Box.getText()
         )) {
-            returnAdded = !returnAdded;
+            //checks if return flights was added successfully
+            departAdded = !departAdded;
             System.out.println("Adding 1st Depart Tickets to Database....");
             finishBooking();
         }
-
-        // Additional logic or scene transition if needed
 
     }
     @FXML
@@ -148,13 +163,12 @@ public class BookTicketsController implements Initializable {
                 ticket2ArrivalTimeTextField.getText(),
                 departFlightNo2Box.getText()
         )) {
-            returnAdded = !returnAdded;
+            departAdded = !departAdded;
             System.out.println("Adding 2nd Depart Tickets to Database....");
             finishBooking();
         }
-
-        // Additional logic or scene transition if needed
     }
+
     @FXML
     void onDepartTicket3AddButtonClicked() {
 
@@ -165,12 +179,10 @@ public class BookTicketsController implements Initializable {
                 ticket3ArrivalTimeTextField.getText(),
                 departFlightNo3Box.getText()
         )) {
-            returnAdded = !returnAdded;
+            departAdded = !departAdded;
             System.out.println("Adding 3rd Depart Tickets to Database....");
             finishBooking();
         }
-
-        // Additional logic or scene transition if needed
 
     }
     @FXML
@@ -182,36 +194,46 @@ public class BookTicketsController implements Initializable {
                 ticket4ArrivalTimeTextField.getText(),
                 departFlightNo4Box.getText()
         )) {
-            returnAdded = !returnAdded;
+            departAdded = !departAdded;
             System.out.println("Adding 4th Depart Tickets to Database....");
             finishBooking();
         }
-
-        // Additional logic or scene transition if needed
     }
 
     private void finishBooking() {
         try {
-            if (returnAdded && tripTypeTextField.getText().equals("Round")) {
+            //check if depart flight is added and if the flight type equals to Round then :
+            if (departAdded && tripTypeTextField.getText().equals("Round")) {
+                //if true, make the user book their return ticket
                 getReturnTickets();
             } else {
-                returnAdded = false;
-                Starting.tripSummaryPage = new FXMLLoader(getClass().getResource("TripSummary.fxml"));
-                Starting.tripsummaryScene = new javafx.scene.Scene(Starting.tripSummaryPage.load());
-                Starting.window.setScene(Starting.tripsummaryScene);
+                //if false, don't add the return tickets, is a One-Way OR
+                // it means an error occurred when they were booking their departure fligh
+                departAdded = false;
+                //to get the flights after the customer have booked
+                //reloading the trip summary page to contain the user's new flights
+                Starting.switchScenes("TripSummary");
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+
+    //show the popup if it's successful
     public static void showSuccessPopup(String title, String content) {
+        //this is the popup code, name the popup title, and then the text you want it to show
+        //Creating an instance of Alert with AlertType.INFORMATION
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        //name the pop title
         alert.setTitle(title);
+        //make it no header
         alert.setHeaderText(null);
+        //content text
         alert.setContentText(content);
+        //display the alert and wait until it was interacted or started
         alert.showAndWait();
     }
-
+    //show the pop alert when there is an error
     public static void showErrorPopup(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -219,9 +241,5 @@ public class BookTicketsController implements Initializable {
         alert.setContentText(content);
         alert.showAndWait();
     }
-
-
-
-
 
 }

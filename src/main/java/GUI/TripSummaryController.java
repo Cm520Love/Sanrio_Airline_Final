@@ -45,7 +45,7 @@ public class TripSummaryController implements Initializable {
         // Get the selected item from the ListView
         String selectedFlight = flightListView.getSelectionModel().getSelectedItem();
 
-        // Check if an item is selected
+        // Check if the flight is selected
         if (selectedFlight != null) {
             // Remove the selected item from the ListView
             flightListView.getItems().remove(selectedFlight);
@@ -53,9 +53,11 @@ public class TripSummaryController implements Initializable {
             // Extract the flight details from the selected item
             String flightID = selectedFlight;
 
-            // Call the method to delete the flight from the database
+            // Call the deleteUserFlight method from SQL package, and Current User class to delete the flight from the database
+            //flightID is the argument and delete the flightID from the database
             if (SQL.CurrentUser.deleteUserFlight(flightID)) {
                 System.out.println("Flight deleted successfully");
+                //call this method to delete the passenger -1 when a flight was deleted, so the passenger stays the right number of spots left
                 SearchFlight.decrementPassengers(flightID);
             } else {
                 System.out.println("Flight deletion failed");
@@ -63,29 +65,27 @@ public class TripSummaryController implements Initializable {
         }
     }
 
-
     @FXML
     void onGetFlightInformationButtonClicked(ActionEvent event) {
-        // Get the selected item from the ListView
+        // Get the selected item from the flightListView that we named
+        //the selectedItem is stored in the variable selectedFlight
         String selectedFlight = flightListView.getSelectionModel().getSelectedItem();
 
         // Check if an item is selected
         if (selectedFlight != null) {
-            // Extract the flight details from the selected item
-            //String[] flightDetails = selectedFlight.split("\\s+"); // Assuming whitespace separates details
-            String flightID = selectedFlight; // Adjust index based on your flight details format
+            //extracts the flightID from the selected item
+            String flightID = selectedFlight;
 
             // Query the database for detailed flight information
-            String detailedFlightInfo = SQL.CurrentUser.getUserFlightDetails(flightID);
-
+            //Getting the userFlightDetails based on the flightID
             // Display the detailed flight information in the FlightDetailsTextArea
-            FlightDetailsTextArea.setText(detailedFlightInfo);
+            FlightDetailsTextArea.setText(SQL.CurrentUser.getUserFlightDetails(flightID));
         }
     }
 
     @FXML
     void onMainMenuButtonClicked() {
         System.out.println("going back to the main menu");
-        Starting.window.setScene(Starting.mainMenuAccessScene);
+        Starting.switchScenes("MainMenuAccess");
     }
 }

@@ -45,23 +45,25 @@ public class SignUpController implements Initializable {
     @FXML
     protected void onMainMenuHyperlinkClicked() {
         System.out.println("going back to the main menu");
-        Starting.window.setScene(Starting.mainMenuNoAccessScene);
+        Starting.switchScenes("MainMenuNoAccess");
     }
 
     @FXML
     protected void onMemberLoginHyperlinkClicked() {
         System.out.println("going back to the login page");
-        Starting.window.setScene(Starting.loginScene);
+        Starting.switchScenes("Login");
     }
     @FXML
     public void onSubmitButtonClicked() {
         clearEntryErrors();
         ArrayList<Account.Information> newUserDetails = testUserInformation();
+        // once all the entry fields are filled correctly, sign the user up
         if (canContinueRegistration(newUserDetails)) {
-            System.out.println("should be new user");
             SQL.NewUser.addNewUser(newUserDetails);
+
+            // once user is added to the database, set the current user and log them in
             Starting.setCurrentUser(newUserDetails.get(6).getInfo());
-            Starting.window.setScene(Starting.mainMenuAccessScene);
+            Starting.switchScenes("MainMenuAccess");
         }
 
     }
@@ -83,12 +85,16 @@ public class SignUpController implements Initializable {
 
     private boolean canContinueRegistration(ArrayList<Account.Information> userDetails) {
         boolean continueRegistration = true;
+
+        // iterate through the sign-up details
         for (Account.Information info: userDetails) {
+            // if any of the information the user entered is invalid, they cannot sign up
             if (info.isValid()) {
                 continue;
             }
             continueRegistration = false;
 
+            // display the respective areas the user needs to fix before they can sign up
             switch (info.getClass().getSimpleName()) {
                 case "FirstName":
                     firstNameError.setText(info.getErrorMsg());
@@ -129,6 +135,7 @@ public class SignUpController implements Initializable {
         return continueRegistration;
     }
     private ArrayList<Account.Information> testUserInformation() {
+        // grabbing all the fields the user entered and putting it into a value object
         VOUserProfile newUser = new VOUserProfile();
 
         newUser.firstName = new FirstName(SignUpFirstNameBox.getText());
@@ -143,7 +150,7 @@ public class SignUpController implements Initializable {
         newUser.securityQuestion = new SecurityQuestion(SignUpSecurityQuestionDropBox.getValue());
         newUser.securityAnswer = new SecurityAnswer(SignUpSecurityAnswerBox.getText());
 
-
+        // returning the value object
         return newUser.getUserInformation();
     }
 

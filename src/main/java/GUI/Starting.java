@@ -6,24 +6,24 @@ import javafx.fxml.FXMLLoader;
 
 public class Starting extends Application {
 
-    static Stage window;
-    private FXMLLoader loginPage;
-    private FXMLLoader mainMenuNoAccessPage;
-    private FXMLLoader mainMenuAccessPage;
-    private FXMLLoader signUpPage;
-    static FXMLLoader searchFlightsPage;
-    static FXMLLoader bookTicketsPage;
+    private static Stage window;
+    private static FXMLLoader loginPage;
+    private static FXMLLoader mainMenuNoAccessPage;
+    private static FXMLLoader mainMenuAccessPage;
+    private static FXMLLoader signUpPage;
+    private static FXMLLoader searchFlightsPage;
+    private static FXMLLoader bookTicketsPage;
 
-    private FXMLLoader adminboardPage;
-    static FXMLLoader profilePage;
-    private FXMLLoader forgotPasswordPage;
-    private FXMLLoader returnFlightPage;
+
+    private static FXMLLoader profilePage;
+    private static FXMLLoader forgotPasswordPage;
+
     static FXMLLoader tripSummaryPage;
 
     static Scene mainMenuNoAccessScene;
     static Scene loginScene;
     static Scene splashScreenScene;
-    static Scene signUpScene;
+    private static Scene signUpScene;
     static Scene mainMenuAccessScene;
     static Scene searchFlightsScene;
     static Scene departTicketsScene;
@@ -33,19 +33,14 @@ public class Starting extends Application {
     static Scene returnFlightScene;
     static Scene bookTicketsScene;
 
-    static Scene tripsummaryScene;
+    static Scene tripSummaryScene;
 
-    public static java.sql.Connection conn;
     public static void main(String[] args) { launch(args); }
 
     private static String currentUser;
     @Override
     public void start(Stage primaryStage) {
         try {
-            // establishing connection to database
-            //String url = "jdbc:sqlserver://test-sunnysqlserver.database.windows.net:1433;database=Sanrio_Airlines;user=stinkysnoopy@test-sunnysqlserver;password=AdminPass!!!;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-            //conn = java.sql.DriverManager.getConnection(url);
-            //System.out.println("Database connected.");
             SQL.Access.getAccess();
 
             // setting Stage window as primaryStage and not allowing user to resize it
@@ -53,26 +48,11 @@ public class Starting extends Application {
             window.setResizable(false);
             window.setTitle("Sanrio Airlines");
 
-            // loading all the pages
+            // loading splashscreen
             Parent root = FXMLLoader.load(getClass().getResource("splashScreen.fxml"));
-            loginPage = new FXMLLoader(getClass().getResource("loginPage.fxml"));
-            mainMenuNoAccessPage = new FXMLLoader(getClass().getResource("mainMenuNoAccess.fxml"));
-            mainMenuAccessPage = new FXMLLoader(getClass().getResource("mainMenuAccess.fxml"));
-            signUpPage = new FXMLLoader(getClass().getResource("SignUp.fxml"));
-            searchFlightsPage = new FXMLLoader(getClass().getResource("SearchFlight.fxml"));
-            //profilePage = new FXMLLoader(getClass().getResource("Profile.fxml"));
-            forgotPasswordPage = new FXMLLoader(getClass().getResource("PasswordRecovery.fxml"));
 
-
-            // creating scenes for all the pages
+            // creating splash screen
             splashScreenScene = new Scene(root);
-            mainMenuNoAccessScene = new Scene(mainMenuNoAccessPage.load());
-            mainMenuAccessScene = new Scene(mainMenuAccessPage.load());
-            loginScene = new Scene(loginPage.load());
-            signUpScene = new Scene(signUpPage.load());
-            searchFlightsScene = new Scene(searchFlightsPage.load());
-            //ProfileScene = new Scene(profilePage.load());
-            forgotPasswordScene = new Scene(forgotPasswordPage.load());
 
 
             // showing the splash screen on startup
@@ -96,6 +76,63 @@ public class Starting extends Application {
     }
     public static String getCurrentUser() {
         return currentUser;
+    }
+
+
+    public static void switchScenes(String sceneName) {
+        // method used to switch scenes
+        try {
+            // application will switch scenes using a switch case
+            // input will determine which scene to switch to
+            switch(sceneName) {
+                case "Login":
+                    loginPage = new FXMLLoader(Starting.class.getResource("loginPage.fxml"));
+                    loginScene = new Scene(loginPage.load());
+                    window.setScene(loginScene);
+                    break;
+                case "TripSummary":
+                    tripSummaryPage = new FXMLLoader(Starting.class.getResource("TripSummary.fxml"));
+                    tripSummaryScene = new Scene(tripSummaryPage.load());
+                    window.setScene(tripSummaryScene);
+                    break;
+                case "SignUp":
+                    signUpPage = new FXMLLoader(Starting.class.getResource("SignUp.fxml"));
+                    signUpScene = new Scene(signUpPage.load());
+                    window.setScene(signUpScene);
+                    break;
+                case "ForgotPassword":
+                    forgotPasswordPage = new FXMLLoader(Starting.class.getResource("PasswordRecovery.fxml"));
+                    forgotPasswordScene = new Scene(forgotPasswordPage.load());
+                    window.setScene(forgotPasswordScene);
+                    break;
+                case "SearchFlights":
+                    searchFlightsPage = new FXMLLoader(Starting.class.getResource("SearchFlight.fxml"));
+                    searchFlightsScene = new Scene(searchFlightsPage.load());
+                    window.setScene(searchFlightsScene);
+                    break;
+                case "MainMenuAccess":
+                    mainMenuAccessPage = new FXMLLoader(Starting.class.getResource("mainMenuAccess.fxml"));
+                    mainMenuAccessScene = new Scene(mainMenuAccessPage.load());
+                    window.setScene(mainMenuAccessScene);
+                    break;
+                case "MainMenuNoAccess":
+                    mainMenuNoAccessPage = new FXMLLoader(Starting.class.getResource("mainMenuNoAccess.fxml"));
+                    mainMenuNoAccessScene = new Scene(mainMenuNoAccessPage.load());
+                    window.setScene(mainMenuNoAccessScene);
+                    break;
+                case "BookTickets":
+                    bookTicketsPage = new FXMLLoader(Starting.class.getResource("BookTickets.fxml"));
+                    bookTicketsScene = new Scene(Starting.bookTicketsPage.load());
+                    window.setScene(bookTicketsScene);
+                    break;
+                case "UserProfile":
+                    profilePage = new FXMLLoader(Starting.class.getResource("Profile.fxml"));
+                    profileScene = new Scene(Starting.profilePage.load());
+                    window.setScene(profileScene);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
 }

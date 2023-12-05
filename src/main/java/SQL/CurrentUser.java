@@ -9,7 +9,11 @@ public class CurrentUser {
     static java.sql.PreparedStatement pStatement;
     static ResultSet result;
 
+
     public static boolean login(String username, String password) {
+        // method to check if username and password exists in the database
+        // yes?, return true
+        // no?, return false
         boolean accessGranted = false;
         try {
             pStatement = Access.conn.prepareStatement(
@@ -31,9 +35,10 @@ public class CurrentUser {
 
     }
 
+    //Grabbing all the flights associate to the user for the ListView Box
     public static ArrayList<String> getUserFlights() {
+        //create an arraylist that contains strings
         ArrayList<String> allUserFlights = new ArrayList<>();
-
         try {
             PreparedStatement ps = Access.conn.prepareStatement("SELECT FlightID FROM BookedFlights WHERE Username = ?");
             ps.setString(1, GUI.Starting.getCurrentUser());
@@ -51,16 +56,16 @@ public class CurrentUser {
     }
 
     public static boolean deleteUserFlight(String FlightID) {
-        int rowsAffected = 0;
+        int rowsDeleted = 0; //starts with 0
         try {
             PreparedStatement ps = Access.conn.prepareStatement("DELETE FROM BookedFlights WHERE FlightID = ?");
             ps.setInt(1, Integer.parseInt(FlightID));
-            rowsAffected = ps.executeUpdate();
+            rowsDeleted = ps.executeUpdate(); //give back the rows deleted
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return rowsAffected > 0;
+        return rowsDeleted > 0;//if the rows is greater than 0, means its deleted
 
     }
 
@@ -72,7 +77,9 @@ public class CurrentUser {
         String arrivalAirport = "";
         String username = "";
         try {
+            //grabbing all from booked flights
             PreparedStatement ps = Access.conn.prepareStatement("SELECT * FROM BookedFlights WHERE FlightID = ?");
+            //want the textarea to show the departure airport and arrival airport
             PreparedStatement ps2 = Access.conn.prepareStatement("SELECT DepartureAirport, ArrivalAirport FROM Flight WHERE FlightID = ?");
             ps.setInt(1, Integer.parseInt(FlightID));
             ps2.setInt(1, Integer.parseInt(FlightID));
@@ -91,8 +98,11 @@ public class CurrentUser {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        //how I want it to layout
+        //%s is formatting the string, have to have it to let the systme know what argument is passed
+        //%n is going to the next line
         return String.format("Username: %s%n Departure Airport: %s%n Arrival Airport: %s%n Departure Date: %s%nDeparture Time: %s%nArrival Time: %s",
-                username, departureAirport, arrivalAirport, departureDate, departureTime, arrivalTime);
+                username, departureAirport, arrivalAirport, departureDate, departureTime, arrivalTime); //variables associated it
     }
 
     public static String[] getAllUserInformation(String username) {
@@ -104,6 +114,7 @@ public class CurrentUser {
 
             rs.next();
 
+            //iterating through the result set and getting the information and store it in the array
             for (int index = 1; index <= 11; index++) {
                 userInformation[index - 1] = rs.getString(index);
             }
@@ -114,8 +125,10 @@ public class CurrentUser {
     }
 
     public static boolean accountExists(String username, String firstName, String lastName) {
+        //see whether the account exists or not, false means the accounts does not exists
         boolean exists = false;
         try {
+            //preparing the select statement
             PreparedStatement ps = Access.conn.prepareStatement("SELECT SecurityQuestion, SecurityAnswer, Password FROM Customer WHERE Username = ? AND FirstName = ? AND LastName = ?");
             ps.setString(1, username);
             ps.setString(2, firstName);
