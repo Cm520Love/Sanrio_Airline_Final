@@ -7,9 +7,6 @@ import java.sql.*;
 
 public class AirportTable implements InitializeDatabase{
 
-    public AirportTable() {
-    }
-
     public void initialize() throws Exception {
         // get the information in csv file
         Scanner input = new Scanner(new File("AirportInformation.csv"));
