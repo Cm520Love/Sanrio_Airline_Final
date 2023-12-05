@@ -87,14 +87,16 @@ public class BookTicketsController implements Initializable {
     }
 
     void getReturnTickets() {
+        //swap the from and to when booking flight tickets
         String temp = flightInfo[0];
         flightInfo[0] = flightInfo[1];
         flightInfo[1] = temp;
         flightInfo[2] = flightInformation.get(2).getInfo();
         allFlightTickets = SQL.SearchFlight.retrieveFlights(flightInfo);
 
-
+        //set the title to return flights page
         bookFlightTitle.setText("Sanrio Return Flight Tickets");
+        //flight information for return tickets
         departureAirportTextField.setText(flightInfo[0]);
         arrivalAirportTextField.setText(flightInfo[1]);
         departureDateTextField.setText(flightInfo[2]);
@@ -124,19 +126,19 @@ public class BookTicketsController implements Initializable {
 
     @FXML
     void onDepartTicket1AddButtonClicked() {
+        //add the booked flights from the boxes to the database
         if (SearchFlight.addFlight(
-                Starting.getCurrentUser(),
-                departureDateTextField.getText(),
+                Starting.getCurrentUser(), //get the current username when the customer log in
+                departureDateTextField.getText(), //get text from the boxes
                 ticket1DepartureTimeTextField.getText(),
                 ticket1ArrivalTimeTextField.getText(),
                 departFlightNo1Box.getText()
         )) {
+            //checks if return flights was added successfully
             returnAdded = !returnAdded;
             System.out.println("Adding 1st Depart Tickets to Database....");
             finishBooking();
         }
-
-        // Additional logic or scene transition if needed
 
     }
     @FXML
@@ -152,9 +154,8 @@ public class BookTicketsController implements Initializable {
             System.out.println("Adding 2nd Depart Tickets to Database....");
             finishBooking();
         }
-
-        // Additional logic or scene transition if needed
     }
+
     @FXML
     void onDepartTicket3AddButtonClicked() {
 
@@ -170,8 +171,6 @@ public class BookTicketsController implements Initializable {
             finishBooking();
         }
 
-        // Additional logic or scene transition if needed
-
     }
     @FXML
     void onDepartTicket4AddButtonClicked() {
@@ -186,16 +185,19 @@ public class BookTicketsController implements Initializable {
             System.out.println("Adding 4th Depart Tickets to Database....");
             finishBooking();
         }
-
-        // Additional logic or scene transition if needed
     }
 
     private void finishBooking() {
         try {
+            //check if return flight is added and if the flight type equals to Round then :
             if (returnAdded && tripTypeTextField.getText().equals("Round")) {
+                //if true, get the return tickets
                 getReturnTickets();
             } else {
+                //if false, don't add the return tickets, is a One-Way
                 returnAdded = false;
+                //to get the flights after the customer have booked
+                //reloading the trip summary page to contain the user's new flights
                 Starting.tripSummaryPage = new FXMLLoader(getClass().getResource("TripSummary.fxml"));
                 Starting.tripsummaryScene = new javafx.scene.Scene(Starting.tripSummaryPage.load());
                 Starting.window.setScene(Starting.tripsummaryScene);
@@ -204,14 +206,22 @@ public class BookTicketsController implements Initializable {
             ex.printStackTrace();
         }
     }
+
+    //show the popup if it's successful
     public static void showSuccessPopup(String title, String content) {
+        //this is the popup code, name the popup title, and then the text you want it to show
+        //Creating an instance of Alert with AlertType.INFORMATION
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        //name the pop title
         alert.setTitle(title);
+        //make it no header
         alert.setHeaderText(null);
+        //content text
         alert.setContentText(content);
+        //display the alert and wait until it was interacted or started
         alert.showAndWait();
     }
-
+    //show the pop alert when there is an error
     public static void showErrorPopup(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
@@ -219,9 +229,5 @@ public class BookTicketsController implements Initializable {
         alert.setContentText(content);
         alert.showAndWait();
     }
-
-
-
-
 
 }

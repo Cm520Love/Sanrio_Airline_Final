@@ -44,9 +44,6 @@ public class UserProfileController implements Initializable {
     @FXML
     private Hyperlink SanrioAirline;
 
-    // Instantiate a Customer object
-    private Customers customer = new Customers();
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String Username = Starting.getCurrentUser();

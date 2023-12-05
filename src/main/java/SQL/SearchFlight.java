@@ -128,7 +128,7 @@ public class SearchFlight {
             if (hasUserBookedFlight(Username, FlightID)) {
                 // Show a popup indicating that the user has already booked this flight
                 BookTicketsController.showErrorPopup("Booking Error", "You have already booked this flight.");
-                return false;  // Do not proceed with the insertion
+                return false;
             }
             if (ConflictedTimeFlights(
                     GUI.Starting.getCurrentUser(),
@@ -144,6 +144,7 @@ public class SearchFlight {
                 BookTicketsController.showErrorPopup("Booking Error", "Flight was full. Please book another time");
                 return false;
             }
+
             // Insert the new booking information
             PreparedStatement ps = Access.conn.prepareStatement("INSERT INTO BookedFlights VALUES (?,?,?,?,?)");
             ps.setString(1, Username);
@@ -152,15 +153,17 @@ public class SearchFlight {
             ps.setString(4, ArrivalTime);
             ps.setString(5, FlightID);
             ps.execute();
-            incrementPassengers(FlightID);
 
-            // Optionally, you can show a success popup or perform additional logic
+            incrementPassengers(FlightID); //increment the number of passengers to the flight
+
+            // show success pop up
             BookTicketsController.showSuccessPopup("Booking Successful", "You have successfully booked the flight.");
             return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle the SQLException appropriately (e.g., show an error popup)
+
+            // show error popup
             BookTicketsController.showErrorPopup("Booking Error", "An error occurred while booking the flight. Please try again.");
             return false;
         }
@@ -173,10 +176,10 @@ public class SearchFlight {
             PreparedStatement ps = Access.conn.prepareStatement("SELECT Passengers FROM Flight WHERE FlightID = ?");
             PreparedStatement updatedStatement = Access.conn.prepareStatement("UPDATE Flight SET Passengers = ? WHERE FlightID = ?");
             ps.setInt(1, Integer.parseInt(FlightID));
-            ResultSet rs = ps.executeQuery();  // Returns true if a record is found
+            ResultSet rs = ps.executeQuery();
             rs.next();
             updatedStatement.setInt(1, rs.getInt(1) + 1); //add the passenger for each booked
-            updatedStatement.setInt(2, Integer.parseInt(FlightID)); // this is for specific flightID so it won't add passengers to all flightID
+            updatedStatement.setInt(2, Integer.parseInt(FlightID)); // incrementing passengers to specific flights
             updatedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -200,11 +203,12 @@ public class SearchFlight {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle the SQLException appropriately
             return false;
 
         }
     }
+
+    //Has this user booked this flight already
     private static boolean hasUserBookedFlight(String username, String flightID) {
         try {
             PreparedStatement ps = Access.conn.prepareStatement("SELECT * FROM BookedFlights WHERE Username = ? AND FlightID = ?");
@@ -213,7 +217,6 @@ public class SearchFlight {
             return ps.executeQuery().next();  // Returns true if a record is found
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle the SQLException appropriately
             return false;
 
         }
@@ -232,8 +235,6 @@ public class SearchFlight {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle the SQLException appropriately
-
         }
         return false;
     }
