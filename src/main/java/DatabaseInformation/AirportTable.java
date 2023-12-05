@@ -25,8 +25,8 @@ public class AirportTable implements InitializeDatabase{
         // while the file still has information
         while (input.hasNext()) {
             // get each line, split it using ,
-            String word = input.nextLine();
-            String[] stuff = word.split(",");
+            String line = input.nextLine();
+            String[] stuff = line.split(",");
 
             // put each part in the array into the prepared statement
             for (int index = 1, index2 = 0; index <= 4; index++, index2++) {
