@@ -11,13 +11,9 @@ public abstract class Information {
         this.isValid = isValid;
     }
 
-    public boolean isValid() {
-        return this.isValid;
-    }
+    public boolean isValid() { return this.isValid; }
 
-    public void setInfo(String info) {
-        this.info = info;
-    }
+    public void setInfo(String info) {this.info = info;}
 
     public String getInfo() {
         return info;

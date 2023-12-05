@@ -62,7 +62,7 @@ public class SignUpController implements Initializable {
             SQL.NewUser.addNewUser(newUserDetails);
 
             // once user is added to the database, set the current user and log them in
-            Starting.setCurrentUser(newUserDetails.get(6).getInfo());
+            Starting.setCurrentUser(newUserDetails.get(5).getInfo());
             Starting.switchScenes("MainMenuAccess");
         }
 
