@@ -116,7 +116,7 @@ public class SearchFlightController implements Initializable{
             public void updateItem(LocalDate date, boolean empty) {
                 // method will disable the user from selecting departure dates before today's date or whichever date they pick
                 super.updateItem(date, empty);
-                setDisable(empty || date.compareTo(LocalDate.now()) < 0);
+                setDisable(date.compareTo(LocalDate.now()) < 0);
             }
         });
 
@@ -125,7 +125,7 @@ public class SearchFlightController implements Initializable{
             public void updateItem(LocalDate date, boolean empty) {
                 // method will disable the user from selecting dates prior to the selected departure date
                 super.updateItem(date, empty);
-                setDisable(empty || date.compareTo(selectedDepartDate[0]) < 0);
+                setDisable(date.compareTo(selectedDepartDate[0]) < 0);
             }
         });
     }
