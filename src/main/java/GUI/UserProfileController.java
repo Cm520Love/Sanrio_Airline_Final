@@ -43,6 +43,7 @@ public class UserProfileController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String Username = Starting.getCurrentUser();
+        // [] for arrays
         String[] userInformation = SQL.CurrentUser.getAllUserInformation(Username);
 
         ProfileFirstNameBox.setText(userInformation[0]);

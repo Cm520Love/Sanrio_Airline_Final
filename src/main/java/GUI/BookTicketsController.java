@@ -208,7 +208,7 @@ public class BookTicketsController implements Initializable {
                 getReturnTickets();
             } else {
                 //if false, don't add the return tickets, is a One-Way OR
-                // it means an error occurred when they were booking their departure fligh
+                // it means an error occurred when they were booking their departure flight
                 departAdded = false;
                 //to get the flights after the customer have booked
                 //reloading the trip summary page to contain the user's new flights
